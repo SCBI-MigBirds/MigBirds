@@ -1,13 +1,13 @@
-*How to write functions in R
+# How to write functions in R
 
 Functions allow you to simplify complex tasks, which is especially useful if you need to run a task multiple times. R has many, many functions built in. R packages (or libraries) are collections of functions that help further simplify tasks. As tasks become more complex, however, it is inevitable that you will have to customize your own or existing functions to suit your needs.
-**Running a built-in function
+## Running a built-in function
 Consider a vector, x, that contains 6 numbers: 1, 1, 2, 3, 5, and 8. If you wanted to add up all of the elements in x, you could either add elements individually, as you could on a calculator, or simply use the built-in “sum” function. To run a function, you type the name of the function and then parentheses enclosing the object that you wish to run the function on.
 ```
 1+1+2+3+5+8
 sum(x)
 ```
-**Writing simple functions
+##Writing simple functions
 Writing your own functions is easy, as long as you follow the correct syntax. The basic structure is:
 
 ```
@@ -15,7 +15,7 @@ theNameOfMyFunction <- function(objectToComputeFunctionFor) {
 What you would like to happen when you run your function
 }
 ```
-Note: The curly brackets above are only necessary if your function is more  than one line. If your function is one line you do not need to include them.
+_Note: The curly brackets above are only necessary if your function is more  than one line. If your function is one line you do not need to include them._
 Let’s write a function that adds 1 to every number in our vector x above.
 
 ```
@@ -59,7 +59,6 @@ addOneFun <- function(x){
 	return(xPlusOneTimesTwo)
 }
 ```
-
 
 xPlusOne will be nowhere to be found in your environment! This may seem like a hiccup, but it’s actually very useful when you are running big datasets and need to conserve your systems memory. If you do want to see the intermediate results (for example while debugging a formula), you could assign with the symbol “<<-“ to store the object on your workspace:
 
