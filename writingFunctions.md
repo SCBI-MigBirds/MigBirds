@@ -25,14 +25,14 @@ Let’s write a function that adds 1 to every number in our vector x above.
 addOneFun <- function (x) x + 1
 ```
 
-Which could also be written as
+Which could also be written as:
 
 ```
 addOneFun <- function(x){
 	x+1
 }
 ```
-Either function can be run as:
+You then can run the addOneFun function by typing:
 
 ```
 addOneFun(x)
