@@ -88,17 +88,26 @@ addOneTimesTwoFun <- function(x){
 }
 ```
 
-**Break complex functions into multiple steps .** Functions should be kept short and understandable, when possible. This makes it easier to understand each step in a process and easier to test for potential problems that may arise. For complex functions, nest preliminary steps within the large function. While our "addOneTimesTwoFun" is understandable, we could break this function into multiple steps as:
+**Break complex functions into multiple steps.** Functions should be kept short and understandable, when possible. This makes it easier to understand each step in a process and easier to test for potential problems that may arise. For complex functions, nest preliminary steps within the large function. While our "addOneTimesTwoFun" is understandable, we could break this function into multiple steps as:
 
 ```
+addOneFun <- function(x) x + 1
+
 addOneTimesTwoFun <- function(x){
-	# Add one to x
-		xPlusOne <- addOneFun(x)
-	# Multiple the new x+1 vector by two:
-		xPlusOneTimesTwo <- xPlusOne*2
-	# Provide output:
-		return(xPlusOneTimesTwo)
+	xPlusOne <- addOneFun(x)
+	xPlusOneTimesTwo <- xPlusOne*2
+	return(xPlusOneTimesTwo)
 }
 ```
 
+**Make sure your function does what you think that it does.** It can be unfortunately easy to construct complex functions that do not perform their task as you intended. For complex functions, it's necessary to test your function. To do so, create test data that will provide a clear picture of whether your function works. Prior to running your test, be sure to have a clear expectation of what the results should look like. An example with our addOneFun function:
 
+```
+testX <- c(0,1,2)
+
+testXplusOne <- addOneFun(testX)
+
+testX
+
+testX-1
+```
