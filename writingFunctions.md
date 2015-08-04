@@ -12,7 +12,7 @@ Writing your own functions is easy, as long as you follow the correct syntax. Th
 
 ```
 theNameOfMyFunction <- function(objectToComputeFunctionFor) {
-What you would like to happen when you run your function
+	What you would like to happen when you run your function
 }
 ```
 _Note: The curly brackets above are only necessary if your function is more  than one line. If your function is one line you do not need to include them._
@@ -70,12 +70,14 @@ addOneFun <- function(x){
 }
 ```
 
+## Some best manangement practices for writing functions
+
 Some software carpentry best management practices. It’s highly unlikely that you will get hit in the head with a meteorite, but it is a non-zero probability. As this is the case, you’ll undoubtedly want to leave your code behind as your legacy. Make sure to either name variables in such a way that future generations can understand what you’ve done, or provided comments (“#”) to your script to explain each step. I feel I’ve done well with my naming, but if I wanted to be sure, I could write the function as:
 
 ```
 addOneFun <- function(x){
 	# Add one to x:
-		xPlusOne <<- x+1
+		xPlusOne <- x+1
 	# Multiple the new x+1 vector by two:
 		xPlusOneTimesTwo <- xPlusOne*2
 	# Provide output:
