@@ -100,7 +100,7 @@ addOneTimesTwoFun <- function(x){
 }
 ```
 
-**Make sure your function does what you think that it does.** It can be unfortunately easy to construct complex functions that do not perform their task as you intended. For complex functions, it's necessary to test your function. To do so, create test data that will provide a clear picture of whether your function works. Prior to running your test, be sure to have a clear expectation of what the results should look like. An example with our addOneFun function:
+**Make sure your function does what you think that it does.** It can be unfortunately easy to construct complex functions that do not perform their task as you intended. For complex functions, it's necessary to test your function. To do so, create test data that will demonstrate whether your function works. Prior to running your test, be sure to have a clear expectation of what the results should look like. An example with our addOneFun function:
 
 ```
 testX <- c(0,1,2)
