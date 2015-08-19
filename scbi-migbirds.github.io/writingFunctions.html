@@ -68,7 +68,7 @@ img {
 <div id="running-a-built-in-function" class="section level2">
 <h2>Running a built-in function</h2>
 <p>Consider a vector, x, that contains 6 numbers: 1, 1, 2, 3, 5, and 8. If you wanted to add up all of the elements in x, you could either add elements individually, as you would on a calculator, or simply use the built-in “sum” function. To run a function, you type the name of the function and then parentheses enclosing the object that you wish to run the function on.</p>
-<pre><code>1+1+2+3+5+8
+<pre class="r"><code>1+1+2+3+5+8
 x &lt;- c(1,1,2,3,5,8)
 sum(x)</code></pre>
 <p><em>Note: c(), above, is the “combine” function, which combines elements into a vector. The arrow, “&lt;-”, assigns a name to an object so that the object may be stored in memory. This allows you to use the object in the future without having to recreate it.</em></p>
@@ -76,35 +76,35 @@ sum(x)</code></pre>
 <div id="writing-simple-functions" class="section level2">
 <h2>Writing simple functions</h2>
 <p>Writing your own functions is easy, as long as you follow the correct syntax. The basic structure is:</p>
-<pre><code>theNameOfMyFunction &lt;- function(objectToComputeFunctionFor) {
+<pre class="r"><code>theNameOfMyFunction &lt;- function(objectToComputeFunctionFor) {
     What you would like to happen when you run your function
 }</code></pre>
 <p><em>Note: The curly brackets above are only necessary if your function is more than one line. If your function is one line you do not need to include them.</em> Let’s write a function that adds 1 to every number in our vector x above.</p>
-<pre><code>addOneFun &lt;- function (x) x + 1</code></pre>
+<pre class="r"><code>addOneFun &lt;- function (x) x + 1</code></pre>
 <p>Which could also be written as:</p>
-<pre><code>addOneFun &lt;- function(x){
+<pre class="r"><code>addOneFun &lt;- function(x){
     x+1
 }</code></pre>
 <p>You then can run the addOneFun function by typing:</p>
-<pre><code>addOneFun(x)</code></pre>
+<pre class="r"><code>addOneFun(x)</code></pre>
 <p>Writing and running your own functions is really as simple as that. A couple of tricks along the way though:</p>
 <p>If you assign a name to function output, it is necessary to tell R to return the output. For example, the following function will not return any information:</p>
-<pre><code>addOneFun &lt;- function(x){
+<pre class="r"><code>addOneFun &lt;- function(x){
     xPlusOne &lt;- x+1
 }</code></pre>
 <p>When assigning names, you need to add “return” to show the results of the function:</p>
-<pre><code>addOneFun &lt;- function(x){
+<pre class="r"><code>addOneFun &lt;- function(x){
     xPlusOne &lt;- x+1
     return(xPlusOne)
 }</code></pre>
 <p>Additionally, R will not automatically store intermediate results. Let’s consider a function that multiplies the “plus one” by two:</p>
-<pre><code>addOneTimesTwoFun &lt;- function(x){
+<pre class="r"><code>addOneTimesTwoFun &lt;- function(x){
     xPlusOne &lt;- x+1
     xPlusOneTimesTwo &lt;- xPlusOne*2
     return(xPlusOneTimesTwo)
 }</code></pre>
 <p>xPlusOne will be nowhere to be found in your environment! This may seem like a hiccup, but it’s actually very useful when you are running big datasets and need to conserve your systems memory. If you do want to see the intermediate results (for example while debugging a formula), you could assign with the symbol “&lt;&lt;-“ to store the object on your workspace:</p>
-<pre><code>addOneTimesTwoFun &lt;- function(x){
+<pre class="r"><code>addOneTimesTwoFun &lt;- function(x){
     xPlusOne &lt;&lt;- x+1
     xPlusOneTimesTwo &lt;- xPlusOne*2
     return(xPlusOneTimesTwo)
@@ -113,7 +113,7 @@ sum(x)</code></pre>
 <div id="some-best-manangement-practices-for-writing-functions" class="section level2">
 <h2>Some best manangement practices for writing functions</h2>
 <p><strong>Make your code readable!</strong> It’s highly unlikely that you will get hit in the head with a meteorite, but there is a non-zero probability that this will occur. As this is the case, you’ll undoubtedly want to leave your code behind as your legacy. Make sure to either name variables in such a way that future generations can understand what you’ve done, or provided comments (“#”) to your script to explain each step. I feel I’ve done well with my naming, but if I wanted to be sure, I could write the function as:</p>
-<pre><code>addOneTimesTwoFun &lt;- function(x){
+<pre class="r"><code>addOneTimesTwoFun &lt;- function(x){
     # Add one to x:
         xPlusOne &lt;- x+1
     # Multiple the new x+1 vector by two:
@@ -122,7 +122,7 @@ sum(x)</code></pre>
         return(xPlusOneTimesTwo)
 }</code></pre>
 <p><strong>Break complex functions into multiple steps.</strong> Functions should be kept short and understandable, when possible. This makes it easier to understand each step in a process and easier to test for potential problems that may arise. For complex functions, nest preliminary steps within the large function. While our “addOneTimesTwoFun” is understandable, we could break this function into multiple steps as:</p>
-<pre><code>addOneFun &lt;- function(x) x + 1
+<pre class="r"><code>addOneFun &lt;- function(x) x + 1
 
 addOneTimesTwoFun &lt;- function(x){
     xPlusOne &lt;- addOneFun(x)
@@ -130,7 +130,7 @@ addOneTimesTwoFun &lt;- function(x){
     return(xPlusOneTimesTwo)
 }</code></pre>
 <p><strong>Make sure your function does what you think that it does.</strong> It can be unfortunately easy to construct complex functions that do not perform their task as you intended. For complex functions, it’s necessary to test your function. To do so, create test data that will demonstrate whether your function works. Prior to running your test, be sure to have a clear expectation of what the results should look like. An example with our addOneFun function:</p>
-<pre><code>testX &lt;- c(0,1,2)
+<pre class="r"><code>testX &lt;- c(0,1,2)
 
 testXplusOne &lt;- addOneFun(testX)
 

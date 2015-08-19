@@ -9,59 +9,66 @@ Functions allow you to simplify complex tasks, which is especially useful if you
 ## Running a built-in function
 
 Consider a vector, x, that contains 6 numbers: 1, 1, 2, 3, 5, and 8. If you wanted to add up all of the elements in x, you could either add elements individually, as you would on a calculator, or simply use the built-in “sum” function. To run a function, you type the name of the function and then parentheses enclosing the object that you wish to run the function on.
-```
+
+```{r, eval=FALSE}
 1+1+2+3+5+8
 x <- c(1,1,2,3,5,8)
 sum(x)
 ```
+
 _Note: c(), above, is the "combine" function, which combines elements into a vector. The arrow, "<-", assigns a name to an object so that the object may be stored in memory. This allows you to use the object in the future without having to recreate it._
 
 ##Writing simple functions
 Writing your own functions is easy, as long as you follow the correct syntax. The basic structure is:
 
-```
+```{r, eval=FALSE}
 theNameOfMyFunction <- function(objectToComputeFunctionFor) {
 	What you would like to happen when you run your function
 }
 ```
+
 _Note: The curly brackets above are only necessary if your function is more  than one line. If your function is one line you do not need to include them._
 Let’s write a function that adds 1 to every number in our vector x above.
 
-```
+```{r, eval=FALSE}
 addOneFun <- function (x) x + 1
 ```
 
 Which could also be written as:
 
-```
+```{r, eval=FALSE}
 addOneFun <- function(x){
 	x+1
 }
 ```
+
 You then can run the addOneFun function by typing:
 
-```
+```{r, eval=FALSE}
 addOneFun(x)
 ```
+
 Writing and running your own functions is really as simple as that. A couple of tricks along the way though:
 
 If you assign a name to function output, it is necessary to tell R to return the output. For example, the following function will not return any information:
 
-```
+```{r, eval=FALSE}
 addOneFun <- function(x){
 	xPlusOne <- x+1
 }
 ```
+
 When assigning names, you need to add “return” to show the results of the function:
 
-```
+```{r, eval=FALSE}
 addOneFun <- function(x){
 	xPlusOne <- x+1
 	return(xPlusOne)
 }
 ```
 Additionally, R will not automatically store intermediate results. Let’s consider a function that multiplies the “plus one” by two:
-```
+
+```{r, eval=FALSE}
 addOneTimesTwoFun <- function(x){
 	xPlusOne <- x+1
 	xPlusOneTimesTwo <- xPlusOne*2
@@ -71,7 +78,7 @@ addOneTimesTwoFun <- function(x){
 
 xPlusOne will be nowhere to be found in your environment! This may seem like a hiccup, but it’s actually very useful when you are running big datasets and need to conserve your systems memory. If you do want to see the intermediate results (for example while debugging a formula), you could assign with the symbol “<<-“ to store the object on your workspace:
 
-```
+```{r, eval=FALSE}
 addOneTimesTwoFun <- function(x){
 	xPlusOne <<- x+1
 	xPlusOneTimesTwo <- xPlusOne*2
@@ -83,7 +90,7 @@ addOneTimesTwoFun <- function(x){
 
 **Make your code readable!** It’s highly unlikely that you will get hit in the head with a meteorite, but there is a non-zero probability that this will occur. As this is the case, you’ll undoubtedly want to leave your code behind as your legacy. Make sure to either name variables in such a way that future generations can understand what you’ve done, or provided comments (“#”) to your script to explain each step. I feel I’ve done well with my naming, but if I wanted to be sure, I could write the function as:
 
-```
+```{r, eval=FALSE}
 addOneTimesTwoFun <- function(x){
 	# Add one to x:
 		xPlusOne <- x+1
@@ -96,7 +103,7 @@ addOneTimesTwoFun <- function(x){
 
 **Break complex functions into multiple steps.** Functions should be kept short and understandable, when possible. This makes it easier to understand each step in a process and easier to test for potential problems that may arise. For complex functions, nest preliminary steps within the large function. While our "addOneTimesTwoFun" is understandable, we could break this function into multiple steps as:
 
-```
+```{r, eval=FALSE}
 addOneFun <- function(x) x + 1
 
 addOneTimesTwoFun <- function(x){
@@ -108,7 +115,7 @@ addOneTimesTwoFun <- function(x){
 
 **Make sure your function does what you think that it does.** It can be unfortunately easy to construct complex functions that do not perform their task as you intended. For complex functions, it's necessary to test your function. To do so, create test data that will demonstrate whether your function works. Prior to running your test, be sure to have a clear expectation of what the results should look like. An example with our addOneFun function:
 
-```
+```{r, eval=FALSE}
 testX <- c(0,1,2)
 
 testXplusOne <- addOneFun(testX)
