@@ -1,0 +1,80 @@
+---
+title: 'Pre-assessment: Studying migratory birds in Program R'
+output: html_document
+---
+
+  <img align = "right" src="https://avatars0.githubusercontent.com/u/5629668?v=3&s=460" height="350px" width = "250px"/>
+  
+In this exercise, you will be asked to complete some typical data handling tasks on an example dataset so that we may gauge your current level of R-mastery.This activity is built for us to determine how to best serve you in the R component of the course. Some of these questions are quite simple while others are meant to be challenging. **Do not feel compelled to answer every question** -- if you reach a question that you cannot answer, you may leave it blank. Prior to completing this exercise, we strongly suggest that you complete the SWIRL exercises (see instructions [here](http://htmlpreview.github.io/?https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/swirlCourses.html)). 
+
+Stumped? It happens to everyone! Some quick search engine queries may help you solve problems (Stack Overflow is often a great source). There’s also a good “R for Beginners” guide (link [here](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)) and a great cheat sheet for summarizing data using dplyr (link [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)) available. If you find any of these operations difficult, be sure to revisit the SWIRL exercises!
+
+## Instructions 
+
+ * Open R Studio.
+ * Copy-and-paste questions 1-20 into an R script. 
+ * Place a “#” before each question – the “#” is used to comment out sections of your script (sections of code not evaluated in R). 
+ * To load the data for this exercise, run the following code in R (copy-and-paste):
+
+> 
+> ```r
+> install.packages('RCurl')
+> 
+> require(RCurl)
+> 
+> fileURL <- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')
+> 
+> birdCounts <- read.csv(text = fileURL)
+> ```
+
+* Below each question prompt, please paste the code (i.e. lines of R script) you used to solve each problem. Do not provide the answers nor a verbal description of the steps taken.
+
+* After completing this exercise, please save it as an R file with the title “yourName_RAssessment.R” and email as an attachment to rydert@si.edu and bsevansunc@gmail.com.
+ 
+## Skill assessment
+
+1. Install the R library (i.e., package) “dplyr” and load the library into R’s global environment.
+
+2. How many records (i.e. rows) does birdCounts contain?
+
+3. How many fields (i.e. columns) does birdCounts contain?
+
+4. What type of object is birdCounts (i.e. data frame, matrix, factor)?
+
+5. What type of object is the birdCounts field labeled “count”?
+
+6. Display the structure (type of objects) of birdCounts and all of its associated fields.
+
+7. Using one line of code, display the number of records and fields in birdCounts.
+
+8. Display the first 10 records of birdCounts.
+
+9. Create a vector of counts from the count field of birdCounts.
+
+10. Display the names of all of the fields in birdCounts.
+
+11. Change the name of the “count” field to “abundance”.
+
+12. Determine how many species were observed in this study.
+
+13. Determine the total observed abundance (i.e., across species) in this study.
+
+14. You want to explore the abundance the Gray Catbird (GRCA, Dumetella carolinensis). Make a reduced data frame containing just this species and call this data frame “grcaCounts”.
+
+15. Display the summary information for grcaCounts (i.e. factor counts and summary statistics such as mean and median abundance).
+
+16. Save grcaCounts as a .csv file to your hard drive.
+
+17. Determine the number of sites in which Carolina Chickadees (CACH, Poecile carolinensis) was observed.
+
+18. Construct a table that summarizes the number of sites in which each dietary guild (field name = “diet”) was observed.
+
+19. Summarize the abundance of birds across sites by making a new data frame called “birdSpeciesCounts”. Your data frame should have only “species” and “abundance” fields.
+
+20. You want to explore patterns of abundance by species. To do so, sort birdSpeciesCounts from highest to lowest abundance.
+
+----
+
+**A challenge**! Write a function that calculates the standard error of Gray Catbird abundance. Standard error can be defined by the mathematical formula below, where x would represent the vector of GRCA abundances across sites and n the number of sites. Hint: If you’re stumped on this one, visit [this web page](http://scbi-migbirds.github.io/writingFunctions) that describes writing functions in R.
+
+$$StdErr (x) = \frac{StDev(x)}{\sqrt{n}}$$

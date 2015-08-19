@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Before you begin:</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>The R community has created a number of interactive learning exercises that will help you get your R skills up to speed for the Migratory Birds course. Regardless of your skill level, you will undoubtedly be able to learn a considerable amount from these courses. </p>
+
+<h3>Before you begin:</h3>
+
+<ol>
+<li>If you do not yet have a current version R on your computer, download and install Program R (<a href="https://cran.r-project.org/">link</a>).</li>
+<li>Download and install R Studio onto your computer (<a href="https://www.rstudio.com/products/rstudio/download/">link</a>).</li>
+<li>Download the SWIRL courses to &ldquo;Downloads&rdquo; folder of your computer (<a href="https://github.com/swirldev/swirl_courses/archive/master.zip">link</a>). Make a note of the location of the downloads folder on your computer.</li>
+</ol>
+
+<h3>Install SWIRL:</h3>
+
+<p>Open R Studio.</p>
+
+<p>SWIRL is essentially a user-generated program (also called a <strong>package</strong> or <strong>library</strong>) for use in R. To access this, you must add the program to your R folder. In the Console panel (bottom left), type the following and press Enter:</p>
+
+<pre><code>install.packages(&quot;swirl&quot;)
+</code></pre>
+
+<p><em>Note: You may be prompted to select a &ldquo;mirror&rdquo; from which to download the package. If this is the case, it is recommended that you choose the mirror that is geographically closest to you.</em></p>
+
+<p>In the Console panel, type the following to determine your current working directory (<em>Note: This is the location on your computer that R reads and writes data from/to.</em>)</p>
+
+<pre><code>getwd()
+</code></pre>
+
+<p>In the console panel, use the &ldquo;setwd&rdquo; function (set working directory) to set your working directory to the location of the SWIRL courses. Below is an example of the address of Brian&#39;s Downloads folder on his computer. Replace the script between the quotation marks with the directory location from &ldquo;Before you begin Step 3&rdquo;.</p>
+
+<pre><code>setwd(&#39;C:/Users/Brian/Downloads/&#39;)
+</code></pre>
+
+<p>In the console panel, copy-and-paste the following code to add the SWIRL course pack to your R environment:</p>
+
+<pre><code>install_course_zip(&quot;swirl_courses-master.zip&quot;, multi=TRUE, which_course=&quot;R Programming&quot;)
+
+install_course_zip(&quot;swirl_courses-master.zip&quot;, multi=TRUE, which_course=&quot;Getting_and_Cleaning_Data&quot;)
+
+</code></pre>
+
+<h3>SWIRL Lessons:</h3>
+
+<p>To best prepare you for the Migratory birds course, we ask that you complete the following lessons (<em>Note: Once SWIRL is loaded (below) you will be given the option of which lessons to run</em>). </p>
+
+<ul>
+<li><p>In &ldquo;<strong>R Programming</strong>&rdquo;:</p>
+
+<ul>
+<li>Basic Building Blocks</li>
+<li>Workspace and Files</li>
+<li>Sequences of Numbers</li>
+<li>Vectors<br/></li>
+<li>Subsetting Vectors</li>
+<li>Matrices and Data Frames</li>
+<li>Logic (<em>optional</em>)<br/></li>
+<li>Functions (<em>optional</em>)</li>
+<li>Looking at Data</li>
+</ul></li>
+<li><p>In  &ldquo;<strong>Getting and Cleaning Data</strong>&rdquo;:</p>
+
+<ul>
+<li>Manipulating Data with dplyr</li>
+<li>Grouping and Chaining with dplyr</li>
+<li>Tidying Data with tidyr</li>
+</ul></li>
+</ul>
+
+<h3>Load and run SWIRL:</h3>
+
+<p>Each time you use SWIRL you must add the library to your current working environment. To do so, use the function &ldquo;require&rdquo;:</p>
+
+<pre><code>require(swirl)
+</code></pre>
+
+<p>Type the following to begin using SWIRL:</p>
+
+<pre><code>swirl()
+</code></pre>
+
+<p>Have fun!</p>
+
+</body>
+
+</html>
