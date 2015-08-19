@@ -8,8 +8,8 @@ The R community has created a number of interactive learning exercises that will
 
 ### Before you begin: 
 
-1. If you do not yet have a current version R on your computer, download and install Program R ([link](https://www.rstudio.com/products/rstudio/download/)).
-2. Download and install R Studio onto your computer ([link](https://cran.r-project.org/)).
+1. If you do not yet have a current version R on your computer, download and install Program R ([link](https://cran.r-project.org/)).
+2. Download and install R Studio onto your computer ([link](https://www.rstudio.com/products/rstudio/download/)).
 3. Download the SWIRL courses to "Downloads" folder of your computer ([link](https://github.com/swirldev/swirl_courses/archive/master.zip)). Make a note of the location of the downloads folder on your computer.
 
 ### Install SWIRL:
