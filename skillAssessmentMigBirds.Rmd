@@ -74,6 +74,6 @@ birdCounts <- read.csv(text = fileURL)
 
 ----
 
-**A challenge**! Write a function that calculates the standard error of Gray Catbird abundance. Standard error can be defined by the mathematical formula below, where x would represent the vector of GRCA abundances across sites and n the number of sites. Hint: If you’re stumped on this one, visit [this web page](https://github.com/SCBI-MigBirds/MigBirds/blob/master/writingFunctions.md) that describes writing functions in R.
+**A challenge**! Write a function that calculates the standard error of Gray Catbird abundance. Standard error can be defined by the mathematical formula below, where x would represent the vector of GRCA abundances across sites and n the number of sites. Hint: If you’re stumped on this one, visit [this web page](http://scbi-migbirds.github.io/writingFunctions) that describes writing functions in R.
 
 $$StdErr (x) = \frac{StDev(x)}{\sqrt{n}}$$
