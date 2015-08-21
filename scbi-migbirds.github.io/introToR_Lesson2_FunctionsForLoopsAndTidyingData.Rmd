@@ -1,11 +1,149 @@
 ---
-title: 'Introduction to Program R II: Functions, for loops, and tidying data'
 output: html_document
 ---
+  
+   
+<img align = "right" src="https://www2.gmu.edu/sites/all/modules/features/feature_base_theme/templates/resources/images/mason-logo.png" height="200px" width = "200px"/>
+    
+  <img align = "right" src="https://upload.wikimedia.org/wikipedia/en/6/6a/Smithsonian_Conservation_Biology_Institute_logo.png" height="200px" width = "200px"/>
+  
+# For Loops and Functions
+_Brian S. Evans  
+Smithsonian Conservation Biology Institute  
+Migratory Bird Center_
+
+### Before you begin:
+For this lesson, we will use an example data frame of bird observations. Open R Studio and run the following script to load the data into R:
+
+```{r, eval=FALSE}
+# Load the library
+
+require(RCurl)
+
+# Provide the web address of the file:
+
+fileURL <- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')
+
+# Read in the data:
+
+birdCounts <- read.csv(text = fileURL)
+```
+
+### For loops
+
+While there are many functions out there that replace the necessity of for loops, you will inevitably have to use them at some point in your data analyses. As such, understanding how they work is critical.
+
+For loops require three components:
+
+1. An empty vector, matrix, or list item for the loop to create
+2. The **For loop initialization**: The locations for which the loop will run
+3. The **For instuctions**: what will occur during each iteration of the loop
+
+Let's create some example data using the first five counts in birdCounts:
+
+```{r, eval=FALSE}
+V0 <- birdCounts$count[1:5]
+V0
+```
+
+The value V0[i] is equal to the value at position i in vector V0. Let's take a look at the value of V0 at position 3:
+
+```{r, eval=FALSE}
+V0[3]
+```
+
+We'll start with a very simple loop. We would like to add one to each number in vector V0 and store the results in a new vector, V1. This would be written mathematically as:
+
+$$V_{1, i} =  V_{0, i} + 1$$
+
+
+First, we create an empty vector, V1, to store the results (Note: We specify the length of the vector to provide R with stopping rules -- with big data _for loops_ can become very memory hungry):
+
+```{r, eval=FALSE}
+V1 <- numeric(length = length(V0))
+```
+
+If we want to calculate V0 + 1 at position 3 for our new vector V1, we would write:
+
+```{r, eval=FALSE}
+V1[3] <- V0[3] + 1
+```
+
+Let's compare the initial value of V0 with the resultant value of V1 at position 3:
+
+```{r, eval=FALSE}
+V0[3]
+
+V1[3]
+```
+
+The utility of the _for loop_ is that we can calculate the above for each position ("i") in vector V0. This is done by setting the "**for loop initialization**" statement which defines the locations over which the _for loop_ will be calculated. The _for loop initialization_ for locations one through five is written as (**DO NOT RUN**):
+
+```{r, eval=FALSE}
+for(i in 1:5)
+```
+
+The above can be translated as "for position i in positions 1 through five".
+
+Because we can determine the length of a vector using the length function (`length(V0)`), we can specify the end point for the  _for loop initialization_ statement as (**DO NOT RUN**):
+
+```{r, eval=FALSE}
+for(i in 1:length(V0))
+```
+
+The _for loop initialization_ statement is followed by the "**for instructions**" statement that provides instructions for what will happen during each iteration of the loop (with the _for instructions_ surrounded by "{}"). The _for instructions_ associated with our "add one" formula is (**DO NOT RUN**): 
+
+```{r, eval=FALSE}
+{V1[i] <- V0[i] + 1}
+```
+
+Putting together our _for loop initialization_ and _for instructions_ statements, our completed _for loop_ is written as (**RUN THIS ONE**):
+
+```{r, eval=FALSE}
+for(i in 1:length(V0)){
+  V1[i] <- V0[i] + 1
+}
+```
+
+Take a look at the output and compare it with the values of V0:
+
+```{r, eval=FALSE}
+V1
+
+V0
+```
+
+When writing _for loops_, it is necessary to ensure that the loop is doing what you expect it to do. A simple way to ensure that this is the case is to specify _i_ and run the _for instructions_. For example, to observe the behavior of the _for loop_ at position 3:
+
+```{r, eval=FALSE}
+
+i = 3
+
+V1[i] <- V0[i] + 1
+
+V1[i]
+
+V0[i]
+
+```
+
+----
+
+> **Exercise One:**
+>
+> One of my favorite for loops was created by Leonardo Bonacci (Fibonacci). He created the first known population model, from which the famous Fibonacci number series was created. He described a population (N) at time t as the sum of the population at the previous time step plus the time step before that:
+>
+>$$N_t = N_{t-1} + N_{t-2}$$
+>
+> Use the formula above to generate the first 20 numbers of the  Fibonacci number sequence.
+> 
+>* _**Hint 1**: Unlike our work above, there is only one vector in this formula (the size of the population at time t). The first two values of the number sequence must be set in advance. They are 0 and 1._
+>* _**Hint 2**: Time "t-1" is written in R as "[i-1]"._
+
 
 ## Functions
 
-In the previous lesson, we worked with several functions (e.g., "c", "mean"). Unfortunately, the process of learning R involves learning the many functions within R and its many user-built packages. While this is inevitable, it is also necessary to learn how to build your own functions to simplify your scripts and deal with problems that may arise for which canned functions just don't do the trick.
+In the introductory lesson, we worked with several functions (e.g., "c", "mean"). Unfortunately, the process of learning R involves learning the many functions within R and its many user-built packages. While this is inevitable, it is also necessary to learn how to build your own functions to simplify your scripts and deal with problems that may arise for which canned functions just don't do the trick.
 
 Functions allow you to simplify complex tasks, which is especially useful if you need to run a task multiple times. R has many, many functions built in. R packages (or libraries) are collections of functions that help further simplify tasks. As tasks become more complex, however, it is inevitable that you will have to customize your own or existing functions to suit your needs.
 
@@ -100,7 +238,7 @@ traitGuildPropFun('diet','insectivore')
 ```
 ----
 
-> **Exercise One:**
+> **Exercise Two:**
 >
 > 1. The mathematical formula for standard error is provided below. Convert this to an R function:
 > $$StdErr (x) = \frac{StDev(x)}{\sqrt{n}}$$
@@ -108,68 +246,6 @@ traitGuildPropFun('diet','insectivore')
 >2. Create an function that calculates the mean proportion OF SPECIES (i.e., not counts) representing a selected diet guild across sites.
 3. Create an function that calculates the mean proportion OF SPECIES (i.e., not counts) representing any selected trait and guild across sites.
 
-----
-
-### For loops
-
-While there are many functions out there that replace the necessity of for loops, you will inevitably have to use them at some point in your data analyses. As such, understanding how they work is critical.
-
-For loops require a few steps:
-
-1. Construct an empty vector, matrix, or list item for the loop to create
-2. Specify the locations for which the loop will run
-3. Specify what will occur with each iteration of the loop
-
-We'll start with a very simple loop. Consider a numeric vector from 10 through 15:
-
-```{r, eval=FALSE}
-v <- 10:15
-```
-
-We would like to add one to each number in the vector (which could easily be accomplished with `v+1`)
-
-First, we create an empty vector to store the results. We need to specify the length of the vector to provide R with stopping rules. This doesn't matter with data this size, but as datasets get larger, for loops become very memory hungry if you do not specify the length.
-
-```{r, eval=FALSE}
-v <- 10:15
-v0 <- numeric(length = length(v))
-```
-
-Recall that v[i] is equal to the value at position i in vector v. Thus, if we want to calculate v + 1 at position 3, we would write:
-
-```{r, eval=FALSE}
-v[3] + 1
-```
-
-Our for loop in this instance is constructed by stating: for position i in object v, v0 at position i is equal to the value of v at position i plus 1. In practice, this is:
-
-```{r, eval=FALSE}
-for(i in 1:length(v)){
-  v0[i] <- v[i] + 1
-}
-```
-
-Take a look at the output:
-
-```{r, eval=FALSE}
-v0
-```
-
-One of my favorite for loops was created by Leonardo Fibonacci. He created the first known mathematical formula to describe the population increase in rabbits. From this formula, the famous Fibonacci number series was created. He described a population (N) at time t as the sum of the population at the previous time step plus the time step before that:
-
-$$N_t = N_{t-1} + N_{t-2}$$
-
-Let's calculate the first 20 numbers of the Fibonacci number sequence. To do so, we need to create an empty vector, as above, but provide the value of first two numbers and run the for loop from the third to 20th value.
-
-```{r, eval=FALSE}
-v0 <- numeric(length = 20)
-v0[1] <- 0
-v0[2] <- 1
-
-for(i in 3:length(v0)){
-  v0[i] <- v0[i-1] + v0[i-2]
-}
-```
 
 
 ### **If** I could, **else** I would
@@ -198,8 +274,3 @@ if(v1to20 < mean(v1to20)){
 } else {v1to20 <- 1
 } 
 ```
-
-### dplyr
-
-
-### tidyr
