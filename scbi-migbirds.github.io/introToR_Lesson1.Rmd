@@ -1,8 +1,15 @@
 ---
-title: 'Introduction to Program R: The structure of R'
-author: Brian S. Evans,  Smithsonian Conservation Biology Institute Migratory Bird Center
 output: html_document
 ---
+
+<img align = "right" src="https://www2.gmu.edu/sites/all/modules/features/feature_base_theme/templates/resources/images/mason-logo.png" height="200px" width = "200px"/>
+    
+  <img align = "right" src="https://upload.wikimedia.org/wikipedia/en/6/6a/Smithsonian_Conservation_Biology_Institute_logo.png" height="200px" width = "200px"/>
+  
+# Introduction to Program R: The structure of R
+_Brian S. Evans  
+Smithsonian Conservation Biology Institute  
+Migratory Bird Center_
 
 This document will lead you through the early steps of data exploration and, in the process, you will explore how R structures and interprets a dataset. It is important that you follow every step, formatting and running your data exactly as the script describes. Since R is a script-based program, R syntax is not very flexible -- you must pay VERY careful attention to detail when writing scripts!
 
@@ -608,7 +615,7 @@ Providing basic summary statistics is often a crucial part of data exploration. 
 Finally, we can view several summary statistics for the dataset across fields using the "summary" function:
 
 ```{r, eval=FALSE}
-summary(data)
+summary(birdCounts)
 ```
 
 ----
