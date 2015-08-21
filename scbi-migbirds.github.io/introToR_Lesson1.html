@@ -373,83 +373,165 @@ list1$sillyComputerSaying</code></pre>
 <hr />
 <blockquote>
 <p><strong>Exercise Six:</strong></p>
+<p>Run the following script to read exampleBirdData.csv into R:</p>
+<pre class="r"><code># Load the library
+
+require(RCurl)
+
+# Provide the web address of the file:
+
+fileURL &lt;- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')
+
+# Read in the data:
+
+birdCounts &lt;- read.csv(text = fileURL)</code></pre>
+<p>Use the birdCounts dataset to do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Create a vector that consists of the number values five through ten.</li>
-<li>Create a vector that consists of letter values a through f.</li>
-<li>Create a list object that contains the two vector elements.</li>
-<li>Create a data frame that contains the two vectors.</li>
-<li>Name the list elements “numbers” and “letters”.</li>
-<li>Name the columns of the data frame “numbers” and “letters”.</li>
-<li>Extract the fourth value of the numbers column in the data frame using the row number and column name.</li>
-<li>Extract the first and fourth values of the letters list element.</li>
-<li>In the numbers list element, change the number 7 to 17.</li>
+<li>Determine the class of the birdCounts dataset.</li>
+<li>Determine the class of the species field within birdCounts.</li>
+<li>Extract the count field of birdCounts as a vector.</li>
+<li>Create a data frame of birdCounts consisting of the first 20 records and assign the name “birdCounts2”.</li>
+<li>Change the name of the counts field in birdCounts2 to “abundance”.</li>
+<li>Subset birdCount2 to the fields “site”,species“,”abundance“, and”diet“.</li>
+<li>Change the count for Gray Catbirds (grca) at site 3 from 1 to 2 using the address of the value.</li>
 </ol>
 </blockquote>
 <hr />
 </div>
 </div>
-<div id="working-with-real-data-in-r" class="section level3">
-<h3>Working with real data in R</h3>
-<div id="loading-data" class="section level4">
-<h4>Loading data</h4>
-<p>We will now read in data into R. First, we need to load a library (RCurl) that allows us to read the data directly from our course github page. Run the function “require” R to load the library:</p>
-<pre class="r"><code>require(RCurl)</code></pre>
-<p>Next, we supply the location of the data using the function “getURL”:</p>
-<pre class="r"><code>fileLocation &lt;- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')</code></pre>
-<p>Finally, we read the data into R using the “read.csv” function. We use the “text” argument to let R know the location of the file:</p>
-<pre class="r"><code>data &lt;- read.csv(text = fileLocation)</code></pre>
-<hr />
-<blockquote>
-<p><strong>Exercise Seven:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Determine the class of the R object “data” and its components.</li>
-<li>Determine the number of columns of the data object.</li>
-<li>Determine the number of rows of the data object.</li>
-<li>Extract the vector of names associated with the data object.</li>
-</ol>
-</blockquote>
-<hr />
-</div>
-<div id="data-exploration" class="section level4">
-<h4>Data exploration</h4>
+<div id="exploring-and-summarizing-data-frames" class="section level3">
+<h3>Exploring and summarizing data frames</h3>
 <p>There are a number of useful functions for further exploring the structure of the data.</p>
-<p>The function “head” shows the first six rows of data. If we use the “n” argument, we can specify the number of rows we would like to show in the console:</p>
-<pre class="r"><code>head(data)
+<p>The function “head” shows the first six rows of birdCounts. If we use the “n” argument, we can specify the number of rows we would like to show in the console:</p>
+<pre class="r"><code>head(birdCounts)
 
-head(data, n = 10)</code></pre>
+head(birdCounts, n = 10)</code></pre>
+<p>You could also extract the first 10 records using the address of the rows. The above is equivalent to:</p>
+<pre class="r"><code>birdCounts[1:10,]</code></pre>
 <p>The function “tail” shows the last six rows of data and the “n” argument is used to specify the number of rows:</p>
-<pre class="r"><code>tail(data)
+<pre class="r"><code>tail(birdCounts)
 
-tail(data, n = 10)</code></pre>
+tail(birdCounts, n = 10)</code></pre>
 <p>We may be interested in observing the number of unique factor levels within the object. To do so, we can use the “levels” function (factors only) or “unique” function (any vector data class) to view the number of factor levels for a given vector within the object:</p>
-<pre class="r"><code>levels(data$diet)
+<pre class="r"><code>levels(birdCounts$diet)
 
-unique(data$diet)</code></pre>
+unique(birdCounts$diet)</code></pre>
 <p>We can nest the above function in the function “length” to determine how many dietary classes are represented within the dataset:</p>
-<pre class="r"><code>length(unique(data$diet))</code></pre>
-<p>We may further be interested in the number of observations across factor levels. To do so, we can use the “table” function to tabulate the factor counts for a given vector within the dataset:</p>
-<pre class="r"><code>table(data$diet)</code></pre>
-<p>Providing basic summary statistics is often a crucial part of data exploration. Summary statistics of interest often include:</p>
+<pre class="r"><code>length(unique(birdCounts$diet))</code></pre>
+<p>Providing basic summary statistics is often a crucial part of data exploration. Let’s view some key summary statistics for the vector birdCounts$count:</p>
 <ul>
-<li>Minimum: <code>min(data$count)</code></li>
-<li>Maximum: <code>max(data$count)</code></li>
-<li>Mean: <code>mean(data$count)</code></li>
-<li>Median: <code>median(data$count)</code></li>
-<li>Standard deviation: <code>sd(data$count)</code></li>
+<li>Minimum: <code>min(birdCounts$count)</code></li>
+<li>Maximum: <code>max(birdCounts$count)</code></li>
+<li>Mean: <code>mean(birdCounts$count)</code></li>
+<li>Median: <code>median(birdCounts$count)</code></li>
+<li>Quantile: <code>quantile(birdCounts$count)</code></li>
+<li>Standard deviation: <code>sd(birdCounts$count)</code></li>
 </ul>
-<p>Finally, we can view summary statistics for the dataset across fields using the “summary” function:</p>
+<p>Finally, we can view several summary statistics for the dataset across fields using the “summary” function:</p>
 <pre class="r"><code>summary(data)</code></pre>
 <hr />
 <blockquote>
-<p><strong>Exercise Eight:</strong> For the example dataset, address the following questions:</p>
+<p><strong>Exercise Seven:</strong> For the birdCount dataset, address the following:</p>
 <ol style="list-style-type: decimal">
+<li>Extract the last 10 records using the row addresses (do not use the “tail” function).</li>
 <li>What are the factor levels for the column “foraging”?</li>
 <li>How many unique species does the dataset contain?</li>
-<li>What is the mean value of foraging counts (Hint: this is a nested function!)?</li>
+<li>What is the mean value of counts?</li>
 </ol>
 </blockquote>
 <hr />
 </div>
+<div id="using-logic-to-subsetting-data-by-value" class="section level3">
+<h3>Using logic to subsetting data by value</h3>
+<p>Recall that we used addresses [row, column] to extract columns and rows above, for example:</p>
+<pre class="r"><code>birdCounts[,c('foraging', 'count')]</code></pre>
+<p>In plain English, the code above tells R that you would like to return a subset of birdCounts that includes all of the rows, but only the columns foraging and count.</p>
+<p>You can also specify logical conditions to subset a data frame the values associated with a given field. The logical operators include:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Symbol</th>
+<th align="left">Expression</th>
+<th align="left">Class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">==</td>
+<td align="left">Is equal to</td>
+<td align="left">numeric, factor, character</td>
+</tr>
+<tr class="even">
+<td align="left">!=</td>
+<td align="left">Does not equal</td>
+<td align="left">numeric, factor, character</td>
+</tr>
+<tr class="odd">
+<td align="left">&lt;</td>
+<td align="left">Less than</td>
+<td align="left">numeric</td>
+</tr>
+<tr class="even">
+<td align="left">&lt;=</td>
+<td align="left">Less than or equal to</td>
+<td align="left">numeric</td>
+</tr>
+<tr class="odd">
+<td align="left">&gt;</td>
+<td align="left">Greater than</td>
+<td align="left">numeric</td>
+</tr>
+<tr class="even">
+<td align="left">&gt;=</td>
+<td align="left">Greater than or equal to</td>
+<td align="left">numeric</td>
+</tr>
+<tr class="odd">
+<td align="left">x</td>
+<td align="left">y</td>
+<td align="left">Or</td>
+</tr>
+<tr class="even">
+<td align="left">x &amp; y</td>
+<td align="left">And</td>
+<td align="left">numeric, factor, character</td>
+</tr>
+</tbody>
+</table>
+<p>Before we use logic to subset data frames, let’s take a look at what happens when we test a vector with a logical operator. In the following code, we subset the foraging vector to the first 20 entries, and then test which entries matches the term “ground”.</p>
+<pre class="r"><code>foraging2 &lt;- birdCounts$foraging[1:20]
+
+foraging2 == 'ground'</code></pre>
+<p>We can see that most, but not all, of the foraging2 vector satisfies this condition. If we want to know how many values satisfy this condition, we can use the sum function (TRUE = 1, FALSE = 0):</p>
+<pre class="r"><code>sum(foraging2 == 'ground')</code></pre>
+<p>We can also subset the vector foraging2 to only values that satisfy this condition:</p>
+<pre class="r"><code>foraging2[foraging2 == 'ground']</code></pre>
+<p>Not a very meaningful result, however, we can use the same principle to subset our birdCounts data frame to include only ground foraging species. In the script below, we are telling R to return all of the columns of the birdCounts frame for which the values of foraging are equal to ground:</p>
+<pre class="r"><code>birdCounts[birdCounts$foraging == 'ground',]</code></pre>
+<p>We can use mathematical logical operators, such as our less than or greater than symbols, on our numeric columns. For example, we may be interested only in species counts that are greater than or equal to three:</p>
+<pre class="r"><code>birdCounts[birdCounts$count &gt;= 3,]</code></pre>
+<p>Mathematical logical operators can be combined with statistical summary functions. For example, to subset records to only sites that are greater than or equal to the median value of counts:</p>
+<pre class="r"><code>birdCounts[birdCounts$count &gt;= median(birdCounts$count),]</code></pre>
+<p>Operators can also be combined. Let’s use the “&amp;” symbol to extract rows of birdCounts in which the count is greater than the median and species are ground foragers:</p>
+<pre class="r"><code>birdCounts[birdCounts$count &gt;= median(birdCounts$count)&amp;birdCounts$foraging == 'ground',]</code></pre>
+<p>The “or” logical operator can be a bit dangerous. Let’s see what happens when we use “|” with the operation above:</p>
+<pre class="r"><code>birdCounts[birdCounts$count &gt;= median(birdCounts$count)|birdCounts$foraging == 'ground',]</code></pre>
+<p>The above returned all records for which the count was greater than the median OR the foraging strategy was equal to ground! “Or”&quot; <em>can</em> be quite useful though. For example, we could pull out all records for which foraging stategies are aerial or foliage:</p>
+<pre class="r"><code>birdCounts[birdCounts$foraging == 'aerial'|birdCounts$foraging == 'foliage',]</code></pre>
+<p>Note that the above returns a reduced data frame that satisfies our conditions. We can use this to extract a single column of the data frame as well. Let’s look at just the counts vector that satisfies the above condition:</p>
+<pre class="r"><code>birdCounts[birdCounts$foraging == 'aerial'|birdCounts$foraging == 'foliage','count']</code></pre>
+<p>We can then obtain the average count of aerial and foliage foragers observed (note that this does not include zero observations!):</p>
+<pre class="r"><code>mean(birdCounts[birdCounts$foraging == 'aerial'|birdCounts$foraging == 'foliage','count'])</code></pre>
+<hr />
+<blockquote>
+<p><strong>Exercise Eight:</strong> For the birdCount dataset, address the following using the methods above:</p>
+<ol style="list-style-type: decimal">
+<li>How many species are insectivores?</li>
+<li>In what proportion of sites were insectivores observed?</li>
+</ol>
+</blockquote>
+<hr />
+<p><em>Summary: In the lesson above, we learned some rather unparsimonious ways to explore and subset data. A commonality between the methods we learned, however, is that each of the methods relates directly to how R data are structured. Understanding this structure is crucial for troubleshooting and having a flexible toolkit at your disposal if pre-built functions are not available to complete a given data handling task. In our next lesson, we’ll learn a faster (and better) way to subset and summarize data.</em></p>
 </div>
 
 
