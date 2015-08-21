@@ -1,0 +1,205 @@
+---
+title: 'Introduction to Program R II: Functions, for loops, and tidying data'
+output: html_document
+---
+
+## Functions
+
+In the previous lesson, we worked with several functions (e.g., "c", "mean"). Unfortunately, the process of learning R involves learning the many functions within R and its many user-built packages. While this is inevitable, it is also necessary to learn how to build your own functions to simplify your scripts and deal with problems that may arise for which canned functions just don't do the trick.
+
+Functions allow you to simplify complex tasks, which is especially useful if you need to run a task multiple times. R has many, many functions built in. R packages (or libraries) are collections of functions that help further simplify tasks. As tasks become more complex, however, it is inevitable that you will have to customize your own or existing functions to suit your needs.
+
+### Running a built-in function
+
+Consider a vector, x, that contains 6 numbers: 1, 1, 2, 3, 5, and 8. If you wanted to add up all of the elements in x, you could either add elements individually, as you would on a calculator, or simply use the built-in “sum” function. To run a function, you type the name of the function and then parentheses enclosing the object that you wish to run the function on.
+
+```{r, eval=FALSE}
+1+1+2+3+5+8
+x <- c(1,1,2,3,5,8)
+sum(x)
+```
+
+_Note: Recall that c(), above, is the "combine" function, which combines elements into a vector._
+
+### Writing simple functions
+Writing your own functions is easy, as long as you follow the correct syntax. The basic structure is:
+
+```{r, eval=FALSE}
+theNameOfMyFunction <- function(objectToComputeFunctionFor) {
+	What you would like to happen when you run your function
+}
+```
+
+_Note: The curly brackets above are only necessary if your function is more  than one line. If your function is one line you do not need to include them._
+Let’s write a function that adds 1 to every number in our vector x above.
+
+```{r, eval=FALSE}
+addOneFun <- function (x) x + 1
+```
+
+Which could also be written as:
+
+```{r, eval=FALSE}
+addOneFun <- function(x){
+	x+1
+}
+```
+
+You then can run the addOneFun function by typing:
+
+```{r, eval=FALSE}
+addOneFun(x)
+```
+
+Let's try writing a more meaningful function. Recall from the last lesson that we used logic to subset the BirdCounts data frame as below:
+
+```{r, eval=FALSE}
+birdCounts[birdCounts$foraging == 'aerial','counts']
+```
+
+Let's embed this line of code within a function to extract the sum of counts for a given foraging guild:
+
+```{r, eval=FALSE}
+foragingSumFun <- function(foragingGuild){
+  birdCountSubset <- birdCounts[birdCounts$foraging == foragingGuild,'count']
+  return(sum(birdCountSubset))
+}
+```
+
+We can then calculate the sum of bird counts for any of the guilds with a parsimonious line of code:
+
+```{r, eval=FALSE}
+  foragingSumFun('aerial')
+  foragingSumFun('foliage')
+  foragingSumFun('bark')
+  foragingSumFun('ground')
+```
+
+We can also embed functions within functions. For example, perhaps we want to know the proportion of observed individuals in each foraging guild. We could use our foragingSum function to do so:
+
+```{r, eval=FALSE}
+foragingPropFun <- function(foragingGuild){
+  foragingSumFun(foragingGuild)/sum(birdCounts$count)
+}
+  
+foragingPropFun('ground')
+```
+
+Let's make our function even more flexible. Perhaps we are interested the proportional abundance of guilds for both dietary and foraging life history traits. We can write a function that would extract that information:
+
+```{r, eval=FALSE}
+traitGuildPropFun <- function(trait, guild){
+  birdCountSubset <- birdCounts[birdCounts[,trait] == guild,'count']
+  birdCountSum <- sum(birdCountSubset)
+  return(birdCountSum/sum(birdCounts$count))
+}
+
+traitGuildPropFun('foraging', 'ground')
+
+traitGuildPropFun('diet','insectivore')
+```
+----
+
+> **Exercise One:**
+>
+> 1. The mathematical formula for standard error is provided below. Convert this to an R function:
+> $$StdErr (x) = \frac{StDev(x)}{\sqrt{n}}$$
+>
+>2. Create an function that calculates the mean proportion OF SPECIES (i.e., not counts) representing a selected diet guild across sites.
+3. Create an function that calculates the mean proportion OF SPECIES (i.e., not counts) representing any selected trait and guild across sites.
+
+----
+
+### For loops
+
+While there are many functions out there that replace the necessity of for loops, you will inevitably have to use them at some point in your data analyses. As such, understanding how they work is critical.
+
+For loops require a few steps:
+
+1. Construct an empty vector, matrix, or list item for the loop to create
+2. Specify the locations for which the loop will run
+3. Specify what will occur with each iteration of the loop
+
+We'll start with a very simple loop. Consider a numeric vector from 10 through 15:
+
+```{r, eval=FALSE}
+v <- 10:15
+```
+
+We would like to add one to each number in the vector (which could easily be accomplished with `v+1`)
+
+First, we create an empty vector to store the results. We need to specify the length of the vector to provide R with stopping rules. This doesn't matter with data this size, but as datasets get larger, for loops become very memory hungry if you do not specify the length.
+
+```{r, eval=FALSE}
+v <- 10:15
+v0 <- numeric(length = length(v))
+```
+
+Recall that v[i] is equal to the value at position i in vector v. Thus, if we want to calculate v + 1 at position 3, we would write:
+
+```{r, eval=FALSE}
+v[3] + 1
+```
+
+Our for loop in this instance is constructed by stating: for position i in object v, v0 at position i is equal to the value of v at position i plus 1. In practice, this is:
+
+```{r, eval=FALSE}
+for(i in 1:length(v)){
+  v0[i] <- v[i] + 1
+}
+```
+
+Take a look at the output:
+
+```{r, eval=FALSE}
+v0
+```
+
+One of my favorite for loops was created by Leonardo Fibonacci. He created the first known mathematical formula to describe the population increase in rabbits. From this formula, the famous Fibonacci number series was created. He described a population (N) at time t as the sum of the population at the previous time step plus the time step before that:
+
+$$N_t = N_{t-1} + N_{t-2}$$
+
+Let's calculate the first 20 numbers of the Fibonacci number sequence. To do so, we need to create an empty vector, as above, but provide the value of first two numbers and run the for loop from the third to 20th value.
+
+```{r, eval=FALSE}
+v0 <- numeric(length = 20)
+v0[1] <- 0
+v0[2] <- 1
+
+for(i in 3:length(v0)){
+  v0[i] <- v0[i-1] + v0[i-2]
+}
+```
+
+
+### **If** I could, **else** I would
+
+The "if" statement (and its friend "else") is fundamental to writing flexible functions. The basic format is:
+
+```{r, eval=FALSE}
+if(this conditional statement = TRUE){
+  Do this} else {Do that
+    } 
+```
+
+To explore the if statement, let's start by making a vector of numbers from 1 through 20:
+
+```{r, eval=FALSE}
+v1to20 <- 1:20
+```
+
+
+Let's write an if statement that replaces the value of v1to20 with a  "1" if the value within the vector is greater than the mean and "0" if it is less than the mean:
+
+
+```{r, eval=FALSE}
+if(v1to20 < mean(v1to20)){
+  v1to20<-0
+} else {v1to20 <- 1
+} 
+```
+
+### dplyr
+
+
+### tidyr
