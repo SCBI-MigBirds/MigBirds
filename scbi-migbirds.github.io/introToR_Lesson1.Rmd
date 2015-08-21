@@ -1,5 +1,6 @@
 ---
-title: 'Introduction to Program R I: The structure of R'
+title: 'Introduction to Program R: The structure of R'
+author: Brian S. Evans,  Smithsonian Conservation Biology Institute Migratory Bird Center
 output: html_document
 ---
 
