@@ -1,8 +1,16 @@
+
 ---
-title: "How to write functions in R"
-author: ''
 output: html_document
 ---
+
+<img align = "right" src="https://www2.gmu.edu/sites/all/modules/features/feature_base_theme/templates/resources/images/mason-logo.png" height="150px" width = "150px"/>
+    
+  <img align = "right" src="https://upload.wikimedia.org/wikipedia/en/6/6a/Smithsonian_Conservation_Biology_Institute_logo.png" height="150px" width = "150px"/>
+
+# How to write functions in R
+_Brian S. Evans  
+Smithsonian Conservation Biology Institute  
+Migratory Bird Center_
 
 Functions allow you to simplify complex tasks, which is especially useful if you need to run a task multiple times. R has many, many functions built in. R packages (or libraries) are collections of functions that help further simplify tasks. As tasks become more complex, however, it is inevitable that you will have to customize your own or existing functions to suit your needs.
 
