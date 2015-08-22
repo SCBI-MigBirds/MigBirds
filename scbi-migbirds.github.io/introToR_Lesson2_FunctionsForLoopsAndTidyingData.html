@@ -83,28 +83,38 @@ birdCounts &lt;- read.csv(text = fileURL)</code></pre>
 </div>
 <div id="for-loops" class="section level3">
 <h3>For loops</h3>
-<p>While there are many functions out there that replace the necessity of for loops, you will inevitably have to use them at some point in your data analyses. As such, understanding how they work is critical.</p>
-<p>For loops require three components:</p>
+<p>A <strong><em>for loop</em></strong> is a block of code that allows you to repeat an operation a set number of iterations. As data analysis often includes many repeated tasks, <em>for loops</em> can save considerable time, shorten R scripts, and make your scripts more legible. While there are many functions that replace the necessity of <em>for loops</em>, you will inevitably have to use them at some point in your data analyses and thus understanding how they work is crucial.</p>
+<p><em>For loops</em> require three components:</p>
 <ol style="list-style-type: decimal">
-<li>An empty vector, matrix, or list item for the loop to create</li>
-<li>The <strong>For loop initialization</strong>: The locations for which the loop will run</li>
-<li>The <strong>For instuctions</strong>: what will occur during each iteration of the loop</li>
+<li>An empty vector, matrix, or list item to store output from the loop</li>
+<li><strong>For loop initialization</strong>: The locations for which the loop will run</li>
+<li><strong>For instuctions</strong>: what will occur during each iteration of the loop</li>
 </ol>
 <p>Let’s create some example data using the first five counts in birdCounts:</p>
 <pre class="r"><code>V0 &lt;- birdCounts$count[1:5]
 V0</code></pre>
 <p>The value V0[i] is equal to the value at position i in vector V0. Let’s take a look at the value of V0 at position 3:</p>
 <pre class="r"><code>V0[3]</code></pre>
+<p>This could also be written as:</p>
+<pre class="r"><code>i &lt;- 3
+
+V0[i]</code></pre>
 <p>We’ll start with a very simple loop. We would like to add one to each number in vector V0 and store the results in a new vector, V1. This would be written mathematically as:</p>
 <p><span class="math">\[V_{1, i} =  V_{0, i} + 1\]</span></p>
-<p>First, we create an empty vector, V1, to store the results (Note: We specify the length of the vector to provide R with stopping rules – with big data <em>for loops</em> can become very memory hungry):</p>
+<p>First, we create an empty vector, V1, to store the results (Note: We specify the length of the vector to provide R with stopping rules – without this <em>for loops</em> can become very memory hungry when running over large datasets):</p>
 <pre class="r"><code>V1 &lt;- numeric(length = length(V0))</code></pre>
 <p>If we want to calculate V0 + 1 at position 3 for our new vector V1, we would write:</p>
 <pre class="r"><code>V1[3] &lt;- V0[3] + 1</code></pre>
 <p>Let’s compare the initial value of V0 with the resultant value of V1 at position 3:</p>
 <pre class="r"><code>V0[3]
 
-V1[3]</code></pre>
+V1[3]
+
+i &lt;- 3
+
+V0[i]
+
+V1[i]</code></pre>
 <p>The utility of the <em>for loop</em> is that we can calculate the above for each position (“i”) in vector V0. This is done by setting the “<strong>for loop initialization</strong>” statement which defines the locations over which the <em>for loop</em> will be calculated. The <em>for loop initialization</em> for locations one through five is written as (<strong>DO NOT RUN</strong>):</p>
 <pre class="r"><code>for(i in 1:5)</code></pre>
 <p>The above can be translated as “for position i in positions 1 through five”.</p>
@@ -137,37 +147,57 @@ V0[i]</code></pre>
 <ul>
 <li><em><strong>Hint 1</strong>: Unlike our work above, there is only one vector in this formula (the size of the population at time t). The first two values of the number sequence must be set in advance. They are 0 and 1.</em></li>
 <li><em><strong>Hint 2</strong>: Time “t-1” is written in R as “[i-1]”.</em></li>
+<li><em><strong>Hint 3</strong>: The for loop initialization will include all of 1:20!</em></li>
 </ul>
 </blockquote>
+<hr />
+<p>Recall that in the introductory lesson, we were able to calculate values for a subset of a data frame, subsetting the data using a logical operator. For example, we could calculate the sum of all individuals within the aerial foraging class across sites as:</p>
+<pre class="r"><code>sum(birdCounts[birdCounts$foraging == 'aerial','count'])</code></pre>
+<p>We can use a for loop to calculate this value across foraging guilds. First, we need to create a vector of foraging guilds:</p>
+<pre class="r"><code>foragingGuilds &lt;- unique(birdCounts$foraging)
+
+foragingGuilds</code></pre>
+<p>Next, we’ll create an empty vector to store our results:</p>
+<pre class="r"><code>foragingCounts &lt;- numeric(length = length(foragingGuilds))</code></pre>
+<p>Now, we construct a <em>for loop</em> using our sum operation above. To see how it works, let’s first look at our <em>for instructions</em> outside of the loop:</p>
+<pre class="r"><code>foragingGuilds[4]
+
+sum(birdCounts[birdCounts$foraging == foragingGuilds[4],'count'])</code></pre>
+<p>Note that the above result is equivalent to our result when we subset the birdCounts dataset using row values.</p>
+<p>To evaluate this as a for loop, we run the above <em>for instructions</em> across each of the guilds:</p>
+<pre class="r"><code>for(i in 1:length(foragingGuilds)){
+  foragingCounts[i] &lt;- sum(birdCounts[birdCounts$foraging == foragingGuilds[i],'count'])
+}</code></pre>
+<p>We can turn our result into a pretty nice looking data frame, using the <em>data.frame</em> function:</p>
+<pre class="r"><code>foragingFrame &lt;- data.frame(foragingGuild = foragingGuilds, count = foragingCounts)
+
+foragingFrame</code></pre>
+<hr />
+<blockquote>
+<p><strong>Exercise Two:</strong></p>
+<p>Use a <em>for loop</em> to calculate the <strong>proportion</strong> of the observed individuals within each dietary guild.</p>
+</blockquote>
+<hr />
 </div>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
-<p>In the introductory lesson, we worked with several functions (e.g., “c”, “mean”). Unfortunately, the process of learning R involves learning the many functions within R and its many user-built packages. While this is inevitable, it is also necessary to learn how to build your own functions to simplify your scripts and deal with problems that may arise for which canned functions just don’t do the trick.</p>
-<p>Functions allow you to simplify complex tasks, which is especially useful if you need to run a task multiple times. R has many, many functions built in. R packages (or libraries) are collections of functions that help further simplify tasks. As tasks become more complex, however, it is inevitable that you will have to customize your own or existing functions to suit your needs.</p>
-<div id="running-a-built-in-function" class="section level3">
-<h3>Running a built-in function</h3>
-<p>Consider a vector, x, that contains 6 numbers: 1, 1, 2, 3, 5, and 8. If you wanted to add up all of the elements in x, you could either add elements individually, as you would on a calculator, or simply use the built-in “sum” function. To run a function, you type the name of the function and then parentheses enclosing the object that you wish to run the function on.</p>
-<pre class="r"><code>1+1+2+3+5+8
-x &lt;- c(1,1,2,3,5,8)
-sum(x)</code></pre>
-<p><em>Note: Recall that c(), above, is the “combine” function, which combines elements into a vector.</em></p>
-</div>
-<div id="writing-simple-functions" class="section level3">
-<h3>Writing simple functions</h3>
+<p>In the introductory lesson and above, we have worked with several functions (e.g., “c”, “mean”). Functions allow you to simplify complex tasks, which is especially useful if you need to run a task multiple times. Program R contains many functions and many more still are created by R users and provided to the R community as collections of functions known as packages (or libraries). As datasets and data handling needs are often distinct, relying exclusively on built-in and community-defined functions may be limiting. Learning how to create your own functions, or customize existing functions, provides you with the flexibility to solve unique problems, shorten your script, and make your R code more legible for others.</p>
 <p>Writing your own functions is easy, as long as you follow the correct syntax. The basic structure is:</p>
 <pre class="r"><code>theNameOfMyFunction &lt;- function(objectToComputeFunctionFor) {
     What you would like to happen when you run your function
 }</code></pre>
-<p><em>Note: The curly brackets above are only necessary if your function is more than one line. If your function is one line you do not need to include them.</em> Let’s write a function that adds 1 to every number in our vector x above.</p>
-<pre class="r"><code>addOneFun &lt;- function (x) x + 1</code></pre>
-<p>Which could also be written as:</p>
+<p>Let’s write a function that will do the same thing as our first for loop – add 1 to every value in our vector V0.</p>
 <pre class="r"><code>addOneFun &lt;- function(x){
     x+1
 }</code></pre>
-<p>You then can run the addOneFun function by typing:</p>
-<pre class="r"><code>addOneFun(x)</code></pre>
-<p>Let’s try writing a more meaningful function. Recall from the last lesson that we used logic to subset the BirdCounts data frame as below:</p>
-<pre class="r"><code>birdCounts[birdCounts$foraging == 'aerial','counts']</code></pre>
+<p>Let’s run the addOneFun function and compare it to our values in V1 above:</p>
+<pre class="r"><code>addOneFun(V0)
+
+V1</code></pre>
+<p>Let’s try writing a more meaningful function. Above, we subset the birdCounts frame by the aerial foraging guild as:</p>
+<pre class="r"><code>birdCounts[birdCounts$foraging == 'aerial',]</code></pre>
+<p>And then calculated the sum of this guild using:</p>
+<pre class="r"><code>sum(birdCounts[birdCounts$foraging == 'aerial','count'])</code></pre>
 <p>Let’s embed this line of code within a function to extract the sum of counts for a given foraging guild:</p>
 <pre class="r"><code>foragingSumFun &lt;- function(foragingGuild){
   birdCountSubset &lt;- birdCounts[birdCounts$foraging == foragingGuild,'count']
@@ -175,48 +205,168 @@ sum(x)</code></pre>
 }</code></pre>
 <p>We can then calculate the sum of bird counts for any of the guilds with a parsimonious line of code:</p>
 <pre class="r"><code>  foragingSumFun('aerial')
+
   foragingSumFun('foliage')
-  foragingSumFun('bark')
-  foragingSumFun('ground')</code></pre>
-<p>We can also embed functions within functions. For example, perhaps we want to know the proportion of observed individuals in each foraging guild. We could use our foragingSum function to do so:</p>
-<pre class="r"><code>foragingPropFun &lt;- function(foragingGuild){
-  foragingSumFun(foragingGuild)/sum(birdCounts$count)
-}
   
-foragingPropFun('ground')</code></pre>
-<p>Let’s make our function even more flexible. Perhaps we are interested the proportional abundance of guilds for both dietary and foraging life history traits. We can write a function that would extract that information:</p>
-<pre class="r"><code>traitGuildPropFun &lt;- function(trait, guild){
+  foragingSumFun('bark')
+  
+  foragingSumFun('ground')</code></pre>
+<p>We can make this function more flexible by allowing us to choose which trait and guild we would like to count:</p>
+<pre class="r"><code>traitGuildSumFun &lt;- function(trait, guild){
   birdCountSubset &lt;- birdCounts[birdCounts[,trait] == guild,'count']
-  birdCountSum &lt;- sum(birdCountSubset)
-  return(birdCountSum/sum(birdCounts$count))
-}
+  return(sum(birdCountSubset))
+}</code></pre>
+<p>Let’s look at a few of the results:</p>
+<pre class="r"><code>  traitGuildSumFun('foraging','aerial')
 
-traitGuildPropFun('foraging', 'ground')
-
-traitGuildPropFun('diet','insectivore')</code></pre>
+  traitGuildSumFun('diet','insectivore')</code></pre>
 <hr />
 <blockquote>
-<p><strong>Exercise Two:</strong></p>
+<p><strong>Exercise Three:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>The mathematical formula for standard error is provided below. Convert this to an R function: <span class="math">\[StdErr (x) = \frac{StDev(x)}{\sqrt{n}}\]</span></p></li>
 <li>Create an function that calculates the mean proportion OF SPECIES (i.e., not counts) representing a selected diet guild across sites.</li>
 <li><p>Create an function that calculates the mean proportion OF SPECIES (i.e., not counts) representing any selected trait and guild across sites.</p></li>
 </ol>
 </blockquote>
+<hr />
+<div id="functions-inside-for-loops-for-loops-inside-functions" class="section level3">
+<h3>Functions inside for loops, for loops inside functions</h3>
+<p>Functions can be placed inside for loops to simplify the writing of scripts.</p>
+<p>The sum function that we wrote above simplifies the subsetting and summing of guild counts.</p>
+<p>Let’s take a look at how we could use this within the <em>for loop</em> we wrote in Section One.</p>
+<pre class="r"><code>foragingGuilds &lt;- unique(birdCounts$foraging)
+
+foragingCounts &lt;- numeric(length = length(foragingGuilds))
+
+for(i in 1:length(foragingGuilds)){
+    foragingCounts[i] &lt;- traitGuildSumFun('foraging',foragingGuilds[i])
+}
+
+foragingFrame &lt;- data.frame(foragingGuild = foragingGuilds, count = foragingCounts)
+
+foragingFrame</code></pre>
+<p>We could simplify our script even further by placing our for loop inside a function:</p>
+<pre class="r"><code>traitCountFun &lt;- function(trait){
+  guilds &lt;- unique(birdCounts[,trait])
+  counts &lt;- numeric(length = length(guilds))
+  
+  for(i in 1:length(guilds)){
+    counts[i] &lt;- traitGuildSumFun(trait,guilds[i])
+  }
+  
+  traitFrame &lt;- data.frame(guild = guilds, count = counts)
+  return(traitFrame)
+}</code></pre>
+<p>View the results:</p>
+<pre class="r"><code>traitCountFun('foraging')
+
+traitCountFun('diet')</code></pre>
+<hr />
+<blockquote>
+<p><strong>Exercise Four:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Place a for loop within a function to calculate the mean proportions OF SPECIES (i.e., not counts) represented within diet guilds across sites.</p></li>
+<li><p>Place a function within a for loop to calculate the mean proportions OF SPECIES (i.e., not counts) represented within diet guilds across sites.</p></li>
+</ol>
+</blockquote>
+<hr />
 </div>
-<div id="if-i-could-else-i-would" class="section level3">
-<h3><strong>If</strong> I could, <strong>else</strong> I would</h3>
-<p>The “if” statement (and its friend “else”) is fundamental to writing flexible functions. The basic format is:</p>
-<pre class="r"><code>if(this conditional statement = TRUE){
-  Do this} else {Do that
-    } </code></pre>
-<p>To explore the if statement, let’s start by making a vector of numbers from 1 through 20:</p>
-<pre class="r"><code>v1to20 &lt;- 1:20</code></pre>
-<p>Let’s write an if statement that replaces the value of v1to20 with a “1” if the value within the vector is greater than the mean and “0” if it is less than the mean:</p>
-<pre class="r"><code>if(v1to20 &lt; mean(v1to20)){
-  v1to20&lt;-0
-} else {v1to20 &lt;- 1
-} </code></pre>
+<div id="optional" class="section level3">
+<h3>OPTIONAL!</h3>
+<p>Three simple words have a surprising tendency to strike fear into the hearts of intermediate R users … nested … for … loops (<A HREF="http://soundbible.com/2090-Night-Time-Storm.html">link</a>). Nested for loops are not fundamentally different from for loops – to explain how they work, let’s take a look at what should be a now familiar subset of the bird counts data frame:</p>
+<pre class="r"><code>birdCounts[birdCounts$foraging == 'bark',]</code></pre>
+<p>Let’s use a for loop to subset the data for each foraging guild. This time let’s turn our output into a list of data frames (note that list elements are called using double backets “[[ ]]”):</p>
+<pre class="r"><code>foragingGuilds &lt;- unique(birdCounts$foraging)
+
+foragingList &lt;- list(length = length(foragingGuilds))
+
+for(i in 1:length(foragingGuilds)){
+  foragingList[[i]] &lt;- birdCounts[birdCounts$foraging == foragingGuilds[i],]
+}
+
+foragingList[[3]]</code></pre>
+<p>We now have a list of data frame objects, one for each foraging guild. We can name each of the data frames by the guild they represent, and call the list object by name:</p>
+<pre class="r"><code>names(foragingList) &lt;- foragingGuilds
+
+foragingList[['bark']]</code></pre>
+<p>Perhaps we would now like to get counts of represented across sites for each foraging guild. This is where the nested <em>for loop</em> comes in. Prior to adding the nested component of the loop, let’s see how a non-nested <em>for loop</em> would extract this information for just bark-foraging species. First, we’ll extract a unique vector of species, then create an empty data frame to store the results:</p>
+<pre class="r"><code>barkForagingSpecies &lt;- unique(foragingList[['bark']]$species)
+
+barkForagingSpeciesCounts &lt;- data.frame(guild = 'bark', species = barkForagingSpecies, count =0)
+
+barkForagingSpeciesCounts</code></pre>
+<p>Next, we’ll population our data frame the species counts using a (non-nested) <em>for loop</em>. To help clarify the output, I’ve included broken the subset <em>for instructions</em> below into multiple steps.</p>
+<ol style="list-style-type: decimal">
+<li>Bark foragers are subset from the list</li>
+<li>The species for which the counts will be summed are isolated</li>
+<li>The data frame is subset into just target species</li>
+<li>The count column is summed.</li>
+</ol>
+<pre class="r"><code>for (i in 1:length(barkForagingSpecies)){
+  foragingSubsetFrame &lt;- foragingList[['bark']]
+  
+  targetSpecies &lt;- barkForagingSpecies[i]
+  
+  speciesSubsetFrame &lt;- foragingSubsetFrame[foragingSubsetFrame$species  == targetSpecies,]
+  
+  barkForagingSpeciesCounts$count[i] &lt;- sum(speciesSubsetFrame$count)
+}</code></pre>
+<p>The nested <em>for loop</em> will allow to calculate the above for each of the foraging guilds simultaneously. To do so, we start the foraging list loop. Within that loop, we specify a new position, <em>j</em>, that represents each species within a guild. The remaining steps are unchanged. To help clarify, I’ve added comments above each step:</p>
+<pre class="r"><code># Get unique guilds and make an empty list that the loop will population:
+
+foragingGuilds &lt;- unique(birdCounts$foraging)
+
+foragingList &lt;- list(length = length(foragingGuilds))
+
+# Set the for loop initialization:
+
+for(i in 1:length(foragingGuilds)){
+  
+  # Subset the bird counts data frame to just the guild in question:
+  
+  foragingSubsetFrame &lt;- birdCounts[birdCounts$foraging == foragingGuilds[i],]
+  
+  # Get a unique vector of species for the selected guild:
+  
+  foragingSpecies &lt;- unique(foragingSubsetFrame$species)
+  
+  # Create a data frame where the results will be stored:
+  
+  foragingSpeciesCounts &lt;- data.frame(guild = foragingGuilds[i], species = foragingSpecies, count =0)
+  
+  # Run a for loop to fill the species column for this data frame:
+  
+    for (j in 1:length(foragingSpecies)){
+
+      targetSpecies &lt;- foragingSpecies[j]
+      
+      speciesSubsetFrame &lt;- foragingSubsetFrame[foragingSubsetFrame$species  == targetSpecies,]
+      
+      foragingSpeciesCounts$count[j] &lt;- sum(speciesSubsetFrame$count)
+}
+  # Store output within the list:
+  
+    foragingList[[i]] &lt;- foragingSpeciesCounts
+}
+
+names(foragingList) &lt;- foragingGuilds</code></pre>
+<p>Let’s take a look at the output</p>
+<pre class="r"><code>foragingList[['ground']]
+
+foragingList[['foliage']]
+
+foragingList[['bark']]
+
+foragingList[['aerial']]</code></pre>
+<p>If we’d like to simplify the output, we can turn the entire foragingList into a data frame using the “do.call” function (execute a function call) in conjunction with the “rbind” function (bind rows):</p>
+<pre class="r"><code>do.call(rbind, foragingList)</code></pre>
+<hr />
+<blockquote>
+<p><strong>OPTIONAL exercise:</strong></p>
+<p>Create a nested for loop that will calculate the sum of diet and foraging guilds across sites.</p>
+</blockquote>
+<hr />
 </div>
 </div>
 </div>
