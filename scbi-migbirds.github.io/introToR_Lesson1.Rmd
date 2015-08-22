@@ -738,5 +738,3 @@ mean(birdCounts[birdCounts$foraging == 'aerial'|birdCounts$foraging == 'foliage'
 
 ----
 
-_Summary: In the lesson above, we learned some rather unparsimonious ways to explore and subset data. A commonality between the methods we learned, however, is that each of the methods relates directly to how R data are structured. Understanding this structure is crucial for troubleshooting and having a flexible toolkit at your disposal if pre-built functions are not available to complete a given data handling task. In our next lesson, we'll learn a faster (and better) way to subset and summarize data._ 
-
