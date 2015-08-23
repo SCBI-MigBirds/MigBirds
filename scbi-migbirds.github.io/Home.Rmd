@@ -37,7 +37,7 @@ All data we will use in this course are available via the links below:
 
 ## Useful help file links
 
-* [**Functions List**](http://scbi-migbirds.github.io/Functions.html): List of functions used for each lesson, sorted by lesson. Includes hyperlink to R help files.
+* [**Functions List**](http://scbi-migbirds.github.io/Functions.html): List of functions used for each lesson, sorted by lesson. Includes hyperlinks to R help files.
 * [**R for Beginners**](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): A great introduction to the R programming language.
 * [**R functions**](http://scbi-migbirds.github.io/writingFunctions.html): A simple guide we created to help you get started with writing your own functions.
 * [**dplyr and tidyr cheat sheet**](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): This handy guide provides a quick reference to data wrangling in dplyr and tidyr.
