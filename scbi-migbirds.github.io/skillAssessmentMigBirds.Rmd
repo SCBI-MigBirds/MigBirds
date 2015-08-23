@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-<img align = "right" src="https://www2.gmu.edu/sites/all/modules/features/feature_base_theme/templates/resources/images/mason-logo.png" height="150px" width = "150px"/>
+<img align = "right" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/GMU_logo.svg/1280px-GMU_logo.svg.png" height="150px" width = "150px"/>
     
   <img align = "right" src="https://upload.wikimedia.org/wikipedia/en/6/6a/Smithsonian_Conservation_Biology_Institute_logo.png" height="150px" width = "150px"/>
   
