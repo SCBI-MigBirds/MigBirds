@@ -1,0 +1,232 @@
+---
+output: html_document
+---
+
+<img align = "right" src="https://www2.gmu.edu/sites/all/modules/features/feature_base_theme/templates/resources/images/mason-logo.png" height="150px" width = "150px"/>
+    
+  <img align = "right" src="https://upload.wikimedia.org/wikipedia/en/6/6a/Smithsonian_Conservation_Biology_Institute_logo.png" height="150px" width = "150px"/>
+
+# The Ecology and Conservation of Migratory Birds: Functions used
+  
+----
+
+_Note: For each of the functions belows, click on the hyperlink to view the html help file._
+
+## From Introduction to R
+
+[**Combine**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/c.html): Combines its arguments to form a vector. All arguments are coerced to a common type which is the type of the returned value, and all attributes except names are removed.
+
+```{r, eval=FALSE}
+c(..., recursive = FALSE)
+```
+
+[**Factor**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/factor.html): Used to encode a vector as a factor (the terms 'category' and 'enumerated type' are also used for factors). 
+
+```{r, eval=FALSE}
+factor(x = character(), levels, labels = levels,exclude = NA, ordered = is.ordered(x), nmax = NA)
+```
+
+[**Object Class**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/class.html): Determine how an R object is encoded.
+
+```{r, eval=FALSE}
+class(x)
+```
+
+[**Length**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/length.html): Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined.
+
+```{r, eval=FALSE}
+length(x)
+```
+
+[**Data Frame**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/length.html): Creates data frames, tightly coupled collections of variables which share many of the properties of matrices and of lists, used as the fundamental data structure by most of R's modeling software.
+
+```{r, eval=FALSE}
+data.frame(..., row.names = NULL, check.rows = FALSE,
+           check.names = TRUE,
+           stringsAsFactors = default.stringsAsFactors())
+```
+
+[**Matrix**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/matrix.html): Creates a matrix from the given set of values.
+
+```{r, eval=FALSE}
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)
+```
+
+[**Number of Rows of an Array**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/nrow.html): Returns the number of rows present in x. Also used to set the number of rows in a matrix.
+
+```{r, eval=FALSE}
+nrow(x)
+```
+
+[**Number of Columns of an Array**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/ncol.html): Returns the number of columns present in x. Also used to set the number of columns in a matrix.
+
+```{r, eval=FALSE}
+ncol(x)
+```
+
+[**Dimensions of an Object**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/dim.html): Retrieve or set the dimension of an object.
+
+```{r, eval=FALSE}
+dim(x)
+```
+
+[**List**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/length.html): Construct R lists.
+
+```{r, eval=FALSE}
+list(...)
+```
+
+[**Compactly Display the Structure of an Arbitrary R Object**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/str.html): Display the internal structure of an R object, a diagnostic function and an alternative to summary (and to some extent, dput). Ideally, only one line for each 'basic' structure is displayed. It is especially well suited to compactly display the (abbreviated) contents of (possibly nested) lists. The idea is to give reasonable output for any R object. It calls args for (non-primitive) function objects.
+
+```{r, eval=FALSE}
+str(object, ...)
+```
+
+[**The Names of an Object**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/names.html): Get or set the names of an object.
+
+```{r, eval=FALSE}
+names(x)
+```
+
+[**Column Names**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/colnames.html): Retrieve or set the column names of a matrix-like object. 
+
+```{r, eval=FALSE}
+colnames(x, do.NULL = TRUE, prefix = "col")
+```
+
+[**Get and Set Row Names for Data Frames
+**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/row.names.html): All data frames have a row names attribute, a character vector of length the number of rows with no duplicates nor missing values.
+
+```{r, eval=FALSE}
+row.names(x)
+```
+
+[**Load Package**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html): Library and require load and attach add-on packages.
+
+```{r, eval=FALSE}
+library(package, help, pos = 2, lib.loc = NULL,
+        character.only = FALSE, logical.return = FALSE,
+        warn.conflicts = TRUE, quietly = FALSE,
+        verbose = getOption("verbose"))
+
+require(package, lib.loc = NULL, quietly = FALSE,
+        warn.conflicts = TRUE,
+        character.only = FALSE)
+```
+
+[**Download a URL**](https://help.scilab.org/docs/5.5.0/en_US/getURL.html): Package RCurl. Downloads one or more URLs 
+
+```{r, eval=FALSE}
+getURL(url, ..., .opts = list(),
+        write = basicTextGatherer(.mapUnicode = .mapUnicode),
+         curl = getCurlHandle(), async = length(url) > 1,
+           .encoding = integer(), .mapUnicode = TRUE)
+```
+
+[**Data Input: Read csv**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/length.html): Reads a file in table format and creates a data frame from it, with cases corresponding to lines and variables to fields in the file.
+
+```{r, eval=FALSE}
+read.csv(file, header = TRUE, sep = ",", quote = "\"",
+         dec = ".", fill = TRUE, comment.char = "", ...)
+```
+
+[**Return the First Part of an Object**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/head.html): Returns the first or part of a vector, matrix, table, data frame or function. Since head() is a generic functions, it may also be extended to other classes.
+
+```{r, eval=FALSE}
+head(x, n = 6L, ...)
+```
+
+[**Return the Last Part of an Object**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/tail.html): Returns the first or part of a vector, matrix, table, data frame or function. Since head() is a generic functions, it may also be extended to other classes.
+
+```{r, eval=FALSE}
+tail(x, n = 6L, ...)
+```
+
+[**Levels Attributes**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/levels.html): Provides access to the levels attribute of a variable. The first form returns the value of the levels of its argument and the second sets the attribute.
+
+```{r, eval=FALSE}
+levels(x)
+```
+
+[**Extract Unique Elements**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/unique.html): Returns a vector, data frame or array like x but with duplicate elements/rows removed.
+
+```{r, eval=FALSE}
+unique(x, incomparables = FALSE, ...)
+```
+
+[**Minimum**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/min.html): Returns the (parallel) minima of the input values.
+
+```{r, eval=FALSE}
+min(..., na.rm = FALSE)
+```
+
+[**Maxiumum**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/max.html): Returns the (parallel) minima of the input values.
+
+```{r, eval=FALSE}
+max(..., na.rm = FALSE)
+```
+
+[**Arithmetic Mean**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html): Generic function for the (trimmed) arithmetic mean.
+
+```{r, eval=FALSE}
+mean(x, ...)
+```
+
+[**Median Value**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/median.html): Compute the sample median.
+
+```{r, eval=FALSE}
+median(x, na.rm = FALSE)
+```
+
+[**Sample Quantiles**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/quantile.html): Produces sample quantiles corresponding to the given probabilities. The smallest observation corresponds to a probability of 0 and the largest to a probability of 1.
+
+```{r, eval=FALSE}
+quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,
+         names = TRUE, type = 7, ...)
+```
+
+[**Standard Deviation**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sd.html): Computes the standard deviation of the values in x. If na.rm is TRUE then missing values are removed before computation proceeds.
+
+```{r, eval=FALSE}
+sd(x, na.rm = FALSE)
+```
+
+[**Object Summary**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/summary.html): Generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument.
+
+```{r, eval=FALSE}
+summary(object, ...)
+```
+
+[**Sum of Vector Element**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sum.html): Returns the sum of all the values present in its arguments.
+
+```{r, eval=FALSE}
+sum(..., na.rm = FALSE)
+```
+
+----
+
+## From For loops and functions
+
+[**Numeric Vector**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/numeric.html): Creates or coerces objects of type "numeric".
+
+```{r, eval=FALSE}
+numeric(length = 0)
+```
+
+[**Execute a Function Call**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/do.call.html): Constructs and executes a function call from a name or a function and a list of arguments to be passed to it.
+
+```{r, eval=FALSE}
+do.call(what, args, quote = FALSE, envir = parent.frame())
+```
+
+
+[**Combine R Object by Rows**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/cbind.html): Take a sequence of vector, matrix or data-frame arguments and combine by rows. 
+
+```{r, eval=FALSE}
+rbind(..., deparse.level = 1)
+```
+
+----
+
+<img align = "center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/512px-Git-logo.svg.png" height="150px" width = "150px"/>

@@ -1,0 +1,56 @@
+---
+output: html_document
+---
+<img align = "right" src="https://www2.gmu.edu/sites/all/modules/features/feature_base_theme/templates/resources/images/mason-logo.png" height="150px" width = "150px"/>
+    
+  <img align = "right" src="https://upload.wikimedia.org/wikipedia/en/6/6a/Smithsonian_Conservation_Biology_Institute_logo.png" height="150px" width = "150px"/>
+  
+
+# The Ecology and Conservation of Migratory Birds
+  
+----
+  
+**Welcome to the Ecology and Conservation of Migratory Birds!** This website will be our home base for the R portion of the course. It will contain all of the R exercises and includes links to help files and data that we will use throughout the course.
+
+
+## Getting Started
+
+  <img align = "right" src="https://avatars0.githubusercontent.com/u/5629668?v=3&s=460" height="300px" width = "200px"/>
+
+R has become the universal quantitative interface for ecologists - it's free, powerful, flexible enough to do everything but write manuscripts for you, and is relatively user-friendly. If you haven't already, be sure to:
+
+* Download and install the current version of [<img src = "http://rhrv.r-forge.r-project.org/css/images/R.png" height="30px" width = "30px"/>](https://www.r-project.org/)
+
+* Download and install [<img src = "https://www.rstudio.com/wp-content/uploads/2014/03/blue-250.png" height="75px" width = "75px"/>](https://www.rstudio.com/products/rstudio/download/)
+
+## Course activities and lessons
+In order to ensure that we are all moving at a similar pace, we will place course lessons on this website immediately prior to classroom activies. All lessons placed on this site will remain following this course and you will therefore have permanent access to everything that we've learned.
+
+* [**SWIRL courses**](http://scbi-migbirds.github.io/swirlCourses.html): Instructions for completing the self-guided SWIRL courses to prepare you for this course. To get the most from this course, we strongly suggest completing these exercises prior to arrival. 
+* [**Introduction to R**](http://scbi-migbirds.github.io/IntroductionToR.html): An introductory lesson in R for completion prior to attending this course. Special attention is given to the format and structure of data in R.
+* [**Skill Assessment**](http://scbi-migbirds.github.io/skillAssessmentMigBirds.html): A worksheet for completion prior to attending the course intended to assess your current skill level with R.
+
+## Data links
+All data we will use in this course are available via the links below:
+
+* [**birdCounts**](https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv): An example dataset that we will use during introductory lessons on data exploration.
+
+## Useful help file links
+
+* [**R for Beginners**](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): A great introduction to the R programming language.
+* [**R functions**](http://scbi-migbirds.github.io/writingFunctions.html): A simple guide we created to help you get started with writing your own functions.
+* [**dplyr and tidyr cheat sheet**](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): This handy guide provides a quick reference to data wrangling in dplyr and tidyr.
+* [**Tidy Data**](http://www.jstatsoft.org/v59/i10/paper): Great paper by Hadley Wickham that outlines his philosphy on creating effectively formatted datasets. Includes many examples of making tidy data from untidy data frames.
+* [**R Graphics Cookbook**](http://www.cookbook-r.com/Graphs/): This website provides detailed instructions for using ggplot2 and is a condensed version of Leland Chang's R Graphics Cookbook.
+* [**Data visualization cheat sheet**](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf): This guide is a quick reference guide for ggplot2.
+* [**ggplot2 reference site**](http://docs.ggplot2.org/current/): List of ggplot2 functions with graphical examples.
+
+
+
+## Support or contact
+
+If you are having trouble navigating this page or have a question with page content, please send an email to <bsevans.unc@gmail.com>.
+
+----
+
+<img align = "center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/512px-Git-logo.svg.png" height="150px" width = "150px"/>
