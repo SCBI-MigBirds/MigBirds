@@ -275,9 +275,9 @@ str(list1)
 \]
 \[\begin{array}
 {rrr}
-PopulationA_0 & 6 \\
-PopulationB_0 & 26 \\
-PopulationC_0 & 2
+PopulationA0 & 6 \\
+PopulationB0 & 26 \\
+PopulationC0 & 2
 \end{array}
 \]
 
@@ -333,7 +333,7 @@ rabbits[length(rabbits)]
 >
 > 1. Extract the fifth value (24) of the rabbits vector.
 2. Use the ":" symbol to extract the third through fifth values in the rabbits vector.
-3. Use the combine function to extract the third through fifth values in the rabbits vector.
+3. Use the combine function to extract the third and fifth values in the rabbits vector.
 4. Use the combine and length functions to extract the third and last values in the rabbits vector.
 
 ----
@@ -410,7 +410,7 @@ matrix1[c(1,3),]
 > 1. Extract the value at the cell address associated with row two, column two in dataframe1.
 2. Extract the vector of values associated with row one of dataframe1.
 3. Extract the vector of values associated with column two of dataframe1.
-4. Use the nrow and ncol functions to extract the last row and column of dataframe1.
+4. Use the nrow and ncol functions to extract the value contained in the last row and column of dataframe1.
 5. Use the ":" symbol to extract the first and second rows of matrix1.
 6. Use the combine function to extract the second and third rows of dataframe1.
 
