@@ -739,8 +739,12 @@ mean(birdCounts[birdCounts$foraging == 'aerial'|birdCounts$foraging == 'foliage'
 
 > **Exercise Eight:** For the birdCount dataset, address the following using the methods above:
 >
-1. How many species are insectivores?
-2. In what proportion of sites were insectivores observed?
+1. Subset the birdCounts data frame to just insectivore species. Call the data frame "insectivoreCounts".
+2. How many species are insectivores?
+3. Do steps one and two in this exercise in a single line of code.
+4. How many sites are contained in the birdCount frame?
+5. In how many sites were insectivores observed?
+6. In what proportion of sites were insectivores observed?
 
 ----
 
