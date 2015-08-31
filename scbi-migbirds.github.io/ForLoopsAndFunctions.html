@@ -117,7 +117,7 @@ V0[i]
 V1[i]</code></pre>
 <p>The utility of the <em>for loop</em> is that we can calculate the above for each position (“i”) in vector V0. This is done by setting the “<strong>for loop initialization</strong>” statement which defines the locations over which the <em>for loop</em> will be calculated. The <em>for loop initialization</em> for locations one through five is written as (<strong>DO NOT RUN</strong>):</p>
 <pre class="r"><code>for(i in 1:5)</code></pre>
-<p>The above can be translated as “for position i in positions 1 through five”.</p>
+<p>The above can be translated as “for position i in positions one through five”.</p>
 <p>Because we can determine the length of a vector using the length function (<code>length(V0)</code>), we can specify the end point for the <em>for loop initialization</em> statement as (<strong>DO NOT RUN</strong>):</p>
 <pre class="r"><code>for(i in 1:length(V0))</code></pre>
 <p>The <em>for loop initialization</em> statement is followed by the “<strong>for instructions</strong>” statement that provides instructions for what will happen during each iteration of the loop (with the <em>for instructions</em> surrounded by “{}”). The <em>for instructions</em> associated with our “add one” formula is (<strong>DO NOT RUN</strong>):</p>
@@ -147,7 +147,7 @@ V0[i]</code></pre>
 <ul>
 <li><em><strong>Hint 1</strong>: Unlike our work above, there is only one vector in this formula (the size of the population at time t). The first two values of the number sequence must be set in advance. They are 0 and 1.</em></li>
 <li><em><strong>Hint 2</strong>: Time “t-1” is written in R as “[i-1]”.</em></li>
-<li><em><strong>Hint 3</strong>: The for loop initialization will include all of 1:20!</em></li>
+<li><em><strong>Hint 3</strong>: The for loop initialization will <strong>NOT</strong> include all of 1:20!</em></li>
 </ul>
 </blockquote>
 <hr />

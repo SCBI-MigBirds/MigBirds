@@ -97,7 +97,7 @@ The utility of the _for loop_ is that we can calculate the above for each positi
 for(i in 1:5)
 ```
 
-The above can be translated as "for position i in positions 1 through five".
+The above can be translated as "for position i in positions one through five".
 
 Because we can determine the length of a vector using the length function (`length(V0)`), we can specify the end point for the  _for loop initialization_ statement as (**DO NOT RUN**):
 
@@ -153,7 +153,7 @@ V0[i]
 > 
 >* _**Hint 1**: Unlike our work above, there is only one vector in this formula (the size of the population at time t). The first two values of the number sequence must be set in advance. They are 0 and 1._
 >* _**Hint 2**: Time "t-1" is written in R as "[i-1]"._
->* _**Hint 3**: The for loop initialization will include all of 1:20!_
+>* _**Hint 3**: The for loop initialization will **NOT** include all of 1:20!_
 
 ----
 
