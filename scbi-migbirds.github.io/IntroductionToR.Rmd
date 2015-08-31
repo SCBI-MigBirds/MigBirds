@@ -681,10 +681,16 @@ We can also subset the vector foraging2 to only values that satisfy this conditi
 foraging2[foraging2 == 'ground']
 ```
 
-Not a very meaningful result, however, we can use the same principle to subset our birdCounts data frame to include only ground foraging species. In the script below, we are telling R to return all of the columns of the birdCounts frame for which the values of foraging are equal to ground:
+Not a very meaningful result, however, we can use the same principle to subset our birdCounts data frame to include only ground foraging species. In the script below, we are telling R to return all of the columns of the birdCounts frame for which the row values of foraging are equal to ground (_Note: we are returning all columns in which our row condition is TRUE_):
 
 ```{r eval = F}
 birdCounts[birdCounts$foraging == 'ground',]
+```
+
+We can also return a column and row subset using logic. For example, perhaps we are interested in counts of ground foragers. We could return all columns in which the row condition "ground" is true and just the column "count" as:
+
+```{r eval = F}
+birdCounts[birdCounts$foraging == 'ground','count']
 ```
 
 We can use mathematical logical operators, such as our less than or greater than symbols, on our numeric columns. For example, we may be interested only in species counts that are greater than or equal to three:
