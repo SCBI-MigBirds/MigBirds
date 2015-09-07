@@ -2,6 +2,9 @@ library(dplyr) ; library(tidyr)
 
 birdCountsURL <- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')
 
+birdCounts <- read.csv(text = birdCountsURL) %>%
+  tbl_df()
+
 untidyFrame <- data.frame(subject = c('A','B','C'), 
   treatmentA = c(1.3, 2.3, 3.1), 
   treatmentB = c(2.9, 3.2, 4.6))
@@ -15,8 +18,7 @@ longFrame <- data.frame(site = c('site1', 'site2' ,'site2',rep('site3',3)),
   species = c('amro', c('carw','grca'), 'amro','carw','grca'),
   count = c(1,1,2, 5, 1, 2))
                      
-birdCounts <- read.csv(text = birdCountsURL) %>%
-  tbl_df()
+
 
 
 
