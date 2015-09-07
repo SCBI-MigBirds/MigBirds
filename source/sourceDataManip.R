@@ -15,7 +15,8 @@ longFrame <- data.frame(site = c('site1', 'site2' ,'site2',rep('site3',3)),
   species = c('amro', c('carw','grca'), 'amro','carw','grca'),
   count = c(1,1,2, 5, 1, 2))
                      
-birdCounts <- read.csv(text = birdCountsURL)
+birdCounts <- read.csv(text = birdCountsURL) %>%
+  tbl_df()
 
 
 
