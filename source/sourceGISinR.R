@@ -1,9 +1,17 @@
 # Package installation script
+#------------------------------
+
+# Packages for this exercise:
 
 packages <- c('gstat','raster','dismo','maps', 'rasterVis')
-packagesToInstall <- packages[!(packages %in% installed.packages()[,"Package"])]
-if(length(packagesToInstall)>0) {install.packages(packagesToInstall)}
 
+# Packages for exercise not currently installed:
+
+packagesToInstall <- packages[!(packages %in% installed.packages()[,"Package"])]
+
+# Install packages, if necessary:
+
+if(length(packagesToInstall)>0) {install.packages(packagesToInstall, dependencies = T)}
 
 # Load libraries:
 
@@ -13,6 +21,4 @@ library(gstat)
 library(maps)
 library(rasterVis)
 
-# Get a shapefile of the United States:
 
-us = data('state')
