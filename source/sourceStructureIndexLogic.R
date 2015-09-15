@@ -1,7 +1,7 @@
 library(RCurl)
 
-PackagURL <-'https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/source/sourcePackageInstall.R'
-sourcePackageURL <- getURL(PackageUrl)
+PackageURL <-'https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/source/sourcePackageInstall.R'
+sourcePackageURL <- getURL(PackageURL)
 
 eval(parse(text = sourcePackageURL))
 
