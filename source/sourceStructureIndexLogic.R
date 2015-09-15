@@ -5,8 +5,6 @@ sourcePackageURL <- getURL(PackageURL)
 
 eval(parse(text = sourcePackageURL))
 
-source(sourcePackageInstall.R)
-
 birdCountsURL <- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')
 
 birdCounts <- read.csv(text = birdCountsURL)
