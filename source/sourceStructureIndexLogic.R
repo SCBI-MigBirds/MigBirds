@@ -1,7 +1,11 @@
-packages <- c("ggplot2", "RCurl","dplyr", "tidyr","raster")
-packagesToInstall <- packages[!(packages %in% installed.packages()[,"Package"])]
-install.packages(packagesToInstall)
-if(length(packagesToInstall)>0) {install.packages(packagesToInstall)}
+library(RCurl)
+
+PackagURL <-'https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/source/sourcePackageInstall.R'
+sourcePackageURL <- getURL(PackageUrl)
+
+eval(parse(text = sourcePackageURL))
+
+source(sourcePackageInstall.R)
 
 birdCountsURL <- getURL('https://raw.githubusercontent.com/SCBI-MigBirds/MigBirds/master/data/exampleBirdData.csv')
 
