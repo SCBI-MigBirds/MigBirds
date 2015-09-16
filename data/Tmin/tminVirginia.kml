@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<GroundOverlay>
+<name>Sept14</name>
+<Icon><href>tminVirginia.png</href><viewBoundScale>0.75</viewBoundScale></Icon>
+	<LatLonBox>
+		<north>40.2291666666667</north><south>36.4375</south><east>-74.2291666660441</east><west>-83.0208333327609</west>
+	</LatLonBox>
+</GroundOverlay></kml>
