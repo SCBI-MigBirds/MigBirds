@@ -1,0 +1,111 @@
+"","X","site","state","year","band","age","sex","dd","lat","lon","origin"
+"1",1,"Balsam Mountain Preserve"," NC",2010,257043984,"ASY","M",-62.72,35.4,-83.12,6069
+"2",2,"Balsam Mountain Preserve"," NC",2010,257043985,"ASY","M",-66.58,35.4,-83.12,6069
+"3",3,"Balsam Mountain Preserve"," NC",2010,257043988,"ASY","M",-62.24,35.4,-83.12,6069
+"4",4,"Balsam Mountain Preserve"," NC",2010,257043989,"ASY","M",-61.07,35.4,-83.12,6069
+"5",5,"Balsam Mountain Preserve"," NC",2010,255039826,"ASY","M",-59.32,35.4,-83.12,6069
+"6",6,"Balsam Mountain Preserve"," NC",2010,255039827,"ASY","M",-59.49,35.4,-83.12,6069
+"7",7,"Balsam Mountain Preserve"," NC",2010,255039829,"ASY","M",-70.15,35.4,-83.12,6069
+"8",8,"Balsam Mountain Preserve"," NC",2010,255039830,"ASY","M",-63.51,35.4,-83.12,6069
+"9",9,"Bogue Chitto NWR"," LA",2006,350068534,"ASY","M",-59.75,30.53,-89.82,6672
+"10",10,"Bogue Chitto NWR"," LA",2006,350068531,"ASY","M",-53.34,30.53,-89.82,6672
+"11",11,"Bogue Chitto NWR"," LA",2006,350068520,"ASY","M",-50.45,30.53,-89.82,6672
+"12",12,"Bogue Chitto NWR"," LA",2006,350068526,"ASY","M",-56.7,30.53,-89.82,6672
+"13",13,"Bogue Chitto NWR"," LA",2006,350068525,"ASY","M",-53.63,30.53,-89.82,6672
+"14",14,"Bogue Chitto NWR"," LA",2006,350068535,"ASY","M",-49.28,30.53,-89.82,6672
+"15",15,"Bogue Chitto NWR"," LA",2006,350068527,"ASY","M",-58.47,30.53,-89.82,6672
+"16",16,"Bogue Chitto NWR"," LA",2006,350068519,"ASY","M",-59.66,30.53,-89.82,6672
+"17",17,"Bogue Chitto NWR"," LA",2006,350068522,"ASY","M",-48.68,30.53,-89.82,6672
+"18",18,"Bogue Chitto NWR"," LA",2006,350068524,"ASY","M",-57.77,30.53,-89.82,6672
+"19",19,"Bogue Chitto NWR"," LA",2006,350068523,"ASY","M",-49.56,30.53,-89.82,6672
+"20",20,"Bogue Chitto NWR"," LA",2006,350068530,"ASY","F",-54.78,30.53,-89.82,6672
+"21",21,"Ethan Allen FR"," VT",2009,253081896,"ASY","M",-93.04,44.54,-73.2,4291
+"22",22,"Ethan Allen FR"," VT",2009,257043807,"ASY","M",-86.61,44.54,-73.2,4291
+"23",23,"Ethan Allen FR"," VT",2009,257043805,"ASY","M",-76.32,44.54,-73.2,4291
+"24",24,"Ethan Allen FR"," VT",2009,257043808,"ASY","M",-85.46,44.54,-73.2,4291
+"25",25,"Ethan Allen FR"," VT",2009,257043809,"ASY","M",-31.41,44.54,-73.2,4291
+"26",26,"Ethan Allen FR"," VT",2009,258081898,"ASY","M",-77.11,44.54,-73.2,4291
+"27",27,"Ethan Allen FR"," VT",2009,253081899,"ASY","M",-66.94,44.54,-73.2,4291
+"28",28,"Ethan Allen FR"," VT",2009,253081900,"ASY","M",-91.34,44.54,-73.2,4291
+"29",29,"Ethan Allen FR"," VT",2009,257043803,"ASY","M",-88.37,44.54,-73.2,4291
+"30",30,"Ethan Allen FR"," VT",2009,257043802,"ASY","M",-78.9,44.54,-73.2,4291
+"31",31,"Ethan Allen FR"," VT",2009,257043801,"ASY","M",-82.36,44.54,-73.2,4291
+"32",32,"Ethan Allen FR"," VT",2009,257043804,"ASY","F",-82.91,44.54,-73.2,4291
+"33",33,"Ethan Allen FR"," VT",2009,257043811,"ASY","F",-88.69,44.54,-73.2,4291
+"34",34,"Ethan Allen FR"," VT",2009,257043810,"ASY","M",-81.7,44.54,-73.2,4291
+"35",35,"Ethan Allen FR"," VT",2009,257043806,"ASY","M",-85.73,44.54,-73.2,4291
+"36",36,"Ethan Allen FR"," VT",2009,257043812,"ASY","M",-85.23,44.54,-73.2,4291
+"37",37,"Fort Leonard Wood"," MO",2010,257044805,"ASY","M",-76.59,38.35,-93.55,5631
+"38",38,"Fort Leonard Wood"," MO",2010,257044832,"ASY","M",-69.8,38.35,-93.55,5631
+"39",39,"Fort Leonard Wood"," MO",2010,257044824,"ASY","M",-67.71,38.35,-93.55,5631
+"40",40,"Fort Leonard Wood"," MO",2010,255039887,"ASY","M",-67.83,38.35,-93.55,5631
+"41",41,"Fort Leonard Wood"," MO",2010,255039889,"ASY","M",-69.41,38.35,-93.55,5631
+"42",42,"Fort Leonard Wood"," MO",2010,255039891,"ASY","F",-68.15,38.35,-93.55,5631
+"43",43,"Fort Leonard Wood"," MO",2010,255039892,"ASY","M",-69.06,38.35,-93.55,5631
+"44",44,"Fort Leonard Wood"," MO",2010,255039897,"ASY","M",-72.47,38.35,-93.55,5631
+"45",45,"Fort Leonard Wood"," MO",2010,255039898,"ASY","M",-65.31,38.35,-93.55,5631
+"46",46,"Fort Leonard Wood"," MO",2010,257044803,"ASY","M",-71.99,38.35,-93.55,5631
+"47",47,"Fort Leonard Wood"," MO",2010,257044807,"ASY","M",-70.96,38.35,-93.55,5631
+"48",48,"Fort Leonard Wood"," MO",2010,257044809,"ASY","M",-46.63,38.35,-93.55,5631
+"49",49,"Fort Leonard Wood"," MO",2010,257044815,"ASY","M",-45.13,38.35,-93.55,5631
+"50",50,"Fort Leonard Wood"," MO",2010,257044818,"ASY","M",-84.44,38.35,-93.55,5631
+"51",51,"Fort Leonard Wood"," MO",2010,257044823,"ASY","M",-55.07,38.35,-93.55,5631
+"52",52,"Fort Leonard Wood"," MO",2010,257044827,"ASY","M",-54.69,38.35,-93.55,5631
+"53",53,"Fort Leonard Wood"," MO",2010,257044828,"ASY","M",-53.87,38.35,-93.55,5631
+"54",54,"Fort Leonard Wood"," MO",2010,257044829,"ASY","M",-60.03,38.35,-93.55,5631
+"55",55,"Fort Leonard Wood"," MO",2010,257044830,"ASY","F",-67.77,38.35,-93.55,5631
+"56",56,"Fort Leonard Wood"," MO",2010,257044831,"ASY","M",-73.17,38.35,-93.55,5631
+"57",57,"Green River Cove"," NC",2010,255039831,"ASY","M",-56.93,35.22,-82.43,6071
+"58",58,"Green River Cove"," NC",2010,257043998,"ASY","M",-62.62,35.22,-82.43,6071
+"59",59,"Green River Cove"," NC",2010,255039811,"ASY","M",-62.08,35.22,-82.43,6071
+"60",60,"Green River Cove"," NC",2010,255039832,"ASY","M",-62.9,35.22,-82.43,6071
+"61",61,"Green River Cove"," NC",2010,255039833,"ASY","M",-54.26,35.22,-82.43,6071
+"62",62,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-72.64,38.54,-76.75,5627
+"63",63,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-64.37,38.54,-76.75,5627
+"64",64,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-71.96,38.54,-76.75,5627
+"65",65,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-71.71,38.54,-76.75,5627
+"66",66,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-67.9,38.54,-76.75,5627
+"67",67,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-65.08,38.54,-76.75,5627
+"68",68,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.17,38.54,-76.75,5627
+"69",69,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-55.23,38.54,-76.75,5627
+"70",70,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.58,38.54,-76.75,5627
+"71",71,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-57.59,38.54,-76.75,5627
+"72",72,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.28,38.54,-76.75,5627
+"73",73,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.58,38.54,-76.75,5627
+"74",74,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-70.51,38.54,-76.75,5627
+"75",75,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.13,38.54,-76.75,5627
+"76",76,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-75.01,38.54,-76.75,5627
+"77",77,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-54.43,38.54,-76.75,5627
+"78",78,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-72.12,38.54,-76.75,5627
+"79",79,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.58,38.54,-76.75,5627
+"80",80,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-71.65,38.54,-76.75,5627
+"81",81,"Patuxent Wildlife Research Center"," MD",2010,NA,"ASY ","M",-68.92,38.54,-76.75,5627
+"82",82,"Pearl River Wildlife Management Area"," LA",2006,241068205,"ASY","F",-43.96,30.3,-89.67,6671
+"83",83,"Pearl River Wildlife Management Area"," LA",2006,241068211,"ASY","F",-52.19,30.3,-89.67,6671
+"84",84,"Pearl River Wildlife Management Area"," LA",2006,241068210,"ASY","F",-51.78,30.3,-89.67,6671
+"85",85,"Pearl River Wildlife Management Area"," LA",2006,241068208,"ASY","F",-48.7,30.3,-89.67,6671
+"86",86,"Sandy Mush Gameland"," NC",2010,257043997,"ASY","M",-55.09,35.67,-82.81,6071
+"87",87,"Sherburne Wildlife Management Area"," LA",2006,350068537,"ASY","M",-45.84,30.39,-91.57,6691
+"88",88,"Sherburne Wildlife Management Area"," LA",2006,350068536,"ASY","F",-94.1,30.39,-91.57,6691
+"89",89,"Sherburne Wildlife Management Area"," LA",2006,350068548,"ASY","F",-48.72,30.39,-91.57,6691
+"90",90,"Sherburne Wildlife Management Area"," LA",2006,350068542,"ASY","F",-47.52,30.39,-91.57,6691
+"91",91,"Stirlingville"," MI",2002,225090283,"ASY","F",-89.91,46.16,-84.13,3583
+"92",92,"Stirlingville"," MI",2002,225090279,"ASY","M",-82.93,46.16,-84.13,3583
+"93",93,"Stirlingville"," MI",2002,225090277,"ASY","M",-83.46,46.16,-84.13,3583
+"94",94,"Stirlingville"," MI",2002,225090202,"ASY","M",-91.51,46.16,-84.13,3583
+"95",95,"Stirlingville"," MI",2002,225090261,"ASY","M",-75.84,46.16,-84.13,3583
+"96",96,"Stirlingville"," MI",2002,225090258,"ASY","M",-81.15,46.16,-84.13,3583
+"97",97,"Stirlingville"," MI",2002,225090257,"ASY","M",-81.92,46.16,-84.13,3583
+"98",98,"Stirlingville"," MI",2002,225090252,"ASY","M",-78.5,46.16,-84.13,3583
+"99",99,"Stirlingville"," MI",2002,225090256,"ASY","M",-94.79,46.16,-84.13,3583
+"100",100,"Stirlingville"," MI",2002,225092055,"ASY","M",-80.52,46.16,-84.13,3583
+"101",101,"Stirlingville"," MI",2002,225090254,"ASY","M",-81.87,46.16,-84.13,3583
+"102",102,"Stirlingville"," MI",2002,225090282,"ASY","F",-83.63,46.16,-84.13,3583
+"103",103,"Stirlingville"," MI",2002,225090281,"ASY","F",-93.76,46.16,-84.13,3583
+"104",104,"Stirlingville"," MI",2002,225090260,"ASY","F",-89.09,46.16,-84.13,3583
+"105",105,"Stirlingville"," MI",2002,225090259,"ASY","F",-89.46,46.16,-84.13,3583
+"106",106,"Stirlingville"," MI",2002,225090248,"ASY","F",-79.62,46.16,-84.13,3583
+"107",107,"Stirlingville"," MI",2002,225090278,"ASY","F",-95.06,46.16,-84.13,3583
+"108",108,"Stirlingville"," MI",2002,225090272,"ASY","F",-96.89,46.16,-84.13,3583
+"109",109,"Stirlingville"," MI",2002,225090274,"ASY","F",-99.17,46.16,-84.13,3583
+"110",110,"Stirlingville"," MI",2002,225090275,"ASY","F",-81.02,46.16,-84.13,3583
